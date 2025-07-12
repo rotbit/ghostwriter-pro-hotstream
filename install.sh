@@ -266,48 +266,76 @@ main() {
         exit 1
     fi
     
-    # 安装选项
-    read -p "是否安装 Docker 支持? (y/N): " -n 1 -r
+    # 选择安装模式
+    echo "请选择安装模式:"
+    echo "1) 仅 Docker 模式 (推荐)"
+    echo "2) 本地 Python 环境"
+    echo "3) Docker + 本地环境"
+    read -p "请输入选择 (1/2/3): " -n 1 -r
     echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        INSTALL_DOCKER="yes"
-    else
-        INSTALL_DOCKER="no"
-    fi
     
-    read -p "是否创建系统服务? (y/N): " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        CREATE_SERVICE="yes"
+    case $REPLY in
+        1)
+            INSTALL_MODE="docker-only"
+            INSTALL_DOCKER="yes"
+            INSTALL_LOCAL="no"
+            ;;
+        2)
+            INSTALL_MODE="local-only"
+            INSTALL_DOCKER="no"
+            INSTALL_LOCAL="yes"
+            ;;
+        3)
+            INSTALL_MODE="both"
+            INSTALL_DOCKER="yes"
+            INSTALL_LOCAL="yes"
+            ;;
+        *)
+            log_info "默认选择: 仅 Docker 模式"
+            INSTALL_MODE="docker-only"
+            INSTALL_DOCKER="yes"
+            INSTALL_LOCAL="no"
+            ;;
+    esac
+    
+    if [ "$INSTALL_LOCAL" = "yes" ]; then
+        read -p "是否创建系统服务? (y/N): " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            CREATE_SERVICE="yes"
+        else
+            CREATE_SERVICE="no"
+        fi
     else
         CREATE_SERVICE="no"
     fi
     
     # 开始安装
-    log_info "开始安装 HotStream..."
+    log_info "开始安装 HotStream (模式: $INSTALL_MODE)..."
     
-    # 安装 Python
-    install_python
-    
-    # 安装 Docker（如果选择）
+    # 安装 Docker（如果需要）
     if [ "$INSTALL_DOCKER" = "yes" ]; then
         install_docker
         install_docker_compose
     fi
     
-    # 创建虚拟环境和安装依赖
-    create_venv
-    install_dependencies
-    install_project
+    # 根据模式执行不同的安装步骤
+    if [ "$INSTALL_LOCAL" = "yes" ]; then
+        log_info "安装本地 Python 环境..."
+        install_python
+        create_venv
+        install_dependencies
+        install_project
+        create_service
+    fi
     
-    # 创建配置
+    # 创建配置文件（所有模式都需要）
     create_config
     
-    # 构建 Docker 镜像（如果选择）
-    build_docker_image
-    
-    # 创建服务（如果选择）
-    create_service
+    # 构建 Docker 镜像（如果选择了 Docker）
+    if [ "$INSTALL_DOCKER" = "yes" ]; then
+        build_docker_image
+    fi
     
     echo -e "${GREEN}"
     echo "=========================================="
@@ -315,17 +343,33 @@ main() {
     echo "=========================================="
     echo -e "${NC}"
     
-    echo -e "${BLUE}使用方法:${NC}"
-    echo "1. 激活虚拟环境: source venv/bin/activate"
-    echo "2. 启动框架: python -m hotstream.cli start"
-    echo "3. 搜索数据: python -m hotstream.cli search twitter \"AI,机器学习\" --limit 50"
-    echo "4. 查看帮助: python -m hotstream.cli --help"
-    
-    if [ "$INSTALL_DOCKER" = "yes" ]; then
-        echo -e "${BLUE}Docker 使用:${NC}"
-        echo "1. 直接运行: docker run -it ghostwriter-pro-hotstream:latest"
-        echo "2. 使用 compose: docker-compose up -d"
-    fi
+    case $INSTALL_MODE in
+        "docker-only")
+            echo -e "${BLUE}Docker 使用方法:${NC}"
+            echo "1. 启动服务: docker-compose up -d"
+            echo "2. 查看日志: docker-compose logs -f hotstream"
+            echo "3. 执行命令: docker-compose exec hotstream python -m hotstream.cli --help"
+            echo "4. 搜索数据: docker-compose exec hotstream python -m hotstream.cli search twitter \"AI,机器学习\" --limit 50"
+            echo "5. 停止服务: docker-compose down"
+            ;;
+        "local-only")
+            echo -e "${BLUE}本地使用方法:${NC}"
+            echo "1. 激活虚拟环境: source venv/bin/activate"
+            echo "2. 启动框架: python -m hotstream.cli start"
+            echo "3. 搜索数据: python -m hotstream.cli search twitter \"AI,机器学习\" --limit 50"
+            echo "4. 查看帮助: python -m hotstream.cli --help"
+            ;;
+        "both")
+            echo -e "${BLUE}本地使用方法:${NC}"
+            echo "1. 激活虚拟环境: source venv/bin/activate"
+            echo "2. 启动框架: python -m hotstream.cli start"
+            echo "3. 搜索数据: python -m hotstream.cli search twitter \"AI,机器学习\" --limit 50"
+            echo ""
+            echo -e "${BLUE}Docker 使用方法:${NC}"
+            echo "1. 启动服务: docker-compose up -d"
+            echo "2. 执行命令: docker-compose exec hotstream python -m hotstream.cli --help"
+            ;;
+    esac
     
     echo -e "${YELLOW}注意事项:${NC}"
     echo "- 请根据需要修改 configs/hotstream.yaml 配置文件"

@@ -1,87 +1,44 @@
-# Multi-stage build for GhostWriter Pro HotStream
-FROM python:3.8-slim AS builder
+# 使用官方 Playwright Python 镜像（已包含浏览器和系统依赖）
+FROM mcr.microsoft.com/playwright/python:v1.52.0-noble
 
-# Set working directory
-WORKDIR /app
-
-# Install system dependencies for building
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
-    wget \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy requirements first for better caching
-COPY requirements.txt .
-
-# Install Python dependencies
-RUN pip install --no-cache-dir --user -r requirements.txt
-
-# Production stage
-FROM python:3.8-slim
-
-# Set environment variables
+# 设置环境变量
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
-ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 
-# Create non-root user
+# 创建非 root 用户
 RUN groupadd -r hotstream && useradd -r -g hotstream hotstream
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    libnss3 \
-    libnspr4 \
-    libxss1 \
-    libasound2 \
-    libxrandr2 \
-    libatk1.0-0 \
-    libdrm-dev \
-    libxcomposite1 \
-    libxdamage1 \
-    libxfixes3 \
-    libgtk-3-0 \
-    curl \
-    ca-certificates \
-    fonts-liberation \
-    libappindicator3-1 \
-    libu2f-udev \
-    xdg-utils \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set working directory
+# 设置工作目录
 WORKDIR /app
 
-# Copy Python packages from builder
-COPY --from=builder /root/.local /home/hotstream/.local
+# 复制 requirements 文件
+COPY requirements.txt .
 
-# Copy application code
+# 安装 Python 依赖
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# 复制应用代码
 COPY . .
 
-# Install application in development mode
+# 安装应用（开发模式）
 RUN pip install -e .
 
-# Install Playwright browsers
-RUN python -m playwright install chromium
-
-# Create necessary directories
+# 创建必要的目录
 RUN mkdir -p /app/output /app/logs /app/configs
 
-# Set ownership
+# 设置文件权限
 RUN chown -R hotstream:hotstream /app
 
-# Switch to non-root user
+# 切换到非 root 用户
 USER hotstream
 
-# Add local bin to PATH
-ENV PATH=/home/hotstream/.local/bin:$PATH
-
-# Health check
+# 健康检查
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import hotstream; print('OK')" || exit 1
 
-# Expose port (if needed for web interface)
+# 暴露端口（如果需要 Web 界面）
 EXPOSE 8000
 
-# Default command
+# 默认命令
 CMD ["python", "-m", "hotstream.cli", "start"]

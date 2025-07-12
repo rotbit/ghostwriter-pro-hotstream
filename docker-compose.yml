@@ -9,11 +9,16 @@ services:
     container_name: hotstream-app
     restart: unless-stopped
     
+    # Playwright 优化配置
+    init: true  # 避免僵尸进程
+    ipc: host   # 防止 Chromium 内存不足
+    
     # 环境变量
     environment:
       - PYTHONUNBUFFERED=1
       - HOTSTREAM_ENV=production
       - HOTSTREAM_LOG_LEVEL=INFO
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
     
     # 端口映射 (如果需要 Web 界面)
     ports:
@@ -27,8 +32,7 @@ services:
       - ./output:/app/output
       # 日志目录
       - ./logs:/app/logs
-      # 持久化浏览器数据
-      - playwright_data:/ms-playwright
+      # 注意：使用官方镜像，浏览器已预装，无需持久化
     
     # 健康检查
     healthcheck:
@@ -167,8 +171,6 @@ networks:
 
 # 卷定义
 volumes:
-  playwright_data:
-    driver: local
   redis_data:
     driver: local
   postgres_data:
