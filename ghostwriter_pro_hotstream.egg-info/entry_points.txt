@@ -1,0 +1,2 @@
+[console_scripts]
+hotstream = hotstream.cli:app

@@ -1,0 +1,179 @@
+version: '3.8'
+
+services:
+  hotstream:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghostwriter-pro-hotstream:latest
+    container_name: hotstream-app
+    restart: unless-stopped
+    
+    # 环境变量
+    environment:
+      - PYTHONUNBUFFERED=1
+      - HOTSTREAM_ENV=production
+      - HOTSTREAM_LOG_LEVEL=INFO
+    
+    # 端口映射 (如果需要 Web 界面)
+    ports:
+      - "8000:8000"
+    
+    # 挂载卷
+    volumes:
+      # 配置文件
+      - ./configs:/app/configs:ro
+      # 输出目录
+      - ./output:/app/output
+      # 日志目录
+      - ./logs:/app/logs
+      # 持久化浏览器数据
+      - playwright_data:/ms-playwright
+    
+    # 健康检查
+    healthcheck:
+      test: ["CMD", "python", "-c", "import hotstream; print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # 资源限制
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1.0'
+        reservations:
+          memory: 512M
+          cpus: '0.5'
+    
+    # 依赖服务
+    depends_on:
+      - redis
+      - postgres
+    
+    # 网络
+    networks:
+      - hotstream-network
+
+  # Redis 缓存服务
+  redis:
+    image: redis:7-alpine
+    container_name: hotstream-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - hotstream-network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.2'
+
+  # PostgreSQL 数据库服务
+  postgres:
+    image: postgres:15-alpine
+    container_name: hotstream-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hotstream
+      POSTGRES_USER: hotstream
+      POSTGRES_PASSWORD: hotstream_password
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - hotstream-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+
+  # Nginx 反向代理 (可选)
+  nginx:
+    image: nginx:alpine
+    container_name: hotstream-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - hotstream
+    networks:
+      - hotstream-network
+    profiles:
+      - with-nginx
+
+  # 监控服务 - Prometheus (可选)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: hotstream-prometheus
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - hotstream-network
+    profiles:
+      - monitoring
+
+  # 监控服务 - Grafana (可选)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: hotstream-grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - hotstream-network
+    profiles:
+      - monitoring
+
+# 网络定义
+networks:
+  hotstream-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# 卷定义
+volumes:
+  playwright_data:
+    driver: local
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
