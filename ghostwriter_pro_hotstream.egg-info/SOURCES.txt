@@ -1,12 +1,16 @@
+.dockerignore
 CLAUDE.md
 Dockerfile
 README.md
+docker-compose.yml
+install.sh
 pyproject.toml
 requirements.txt
 test.py
 test_robust.py
 test_simple.py
 test_twitter.py
+uninstall.sh
 模块功能.md
 configs/hotstream.yaml
 examples/api_usage.py

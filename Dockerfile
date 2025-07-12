@@ -1,5 +1,5 @@
 # Multi-stage build for GhostWriter Pro HotStream
-FROM python:3.9-slim AS builder
+FROM python:3.8-slim AS builder
 
 # Set working directory
 WORKDIR /app
@@ -18,7 +18,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --user -r requirements.txt
 
 # Production stage
-FROM python:3.9-slim
+FROM python:3.8-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
