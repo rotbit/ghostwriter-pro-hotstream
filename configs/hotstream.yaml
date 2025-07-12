@@ -6,6 +6,12 @@ framework:
   debug: false
   log_level: "INFO"
 
+mongodb:
+  enabled: true
+  uri: "mongodb://hotstream:E6hBG2kErGG8re3r@43.159.58.235:27017/hotstream"
+  database: "hotstream"
+  password: "E6hBG2kErGG8re3r"
+
 plugins:
   auto_discover: true
   plugin_dirs: []
@@ -36,7 +42,7 @@ platforms:
     config:
       headless: true
       viewport: { width: 1920, height: 1080 }
-  
+
   medium:
     enabled: true
     rate_limit:
@@ -44,7 +50,7 @@ platforms:
       requests_per_hour: 500
     config:
       headless: true
-  
+
   zhihu:
     enabled: true
     rate_limit:
@@ -52,7 +58,7 @@ platforms:
       requests_per_hour: 300
     config:
       headless: true
-  
+
   juejin:
     enabled: true
     rate_limit:

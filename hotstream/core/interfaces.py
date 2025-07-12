@@ -6,14 +6,15 @@ from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Optional, AsyncIterator
 from pydantic import BaseModel
 from enum import Enum
+from datetime import datetime
 
 
 class TaskStatus(Enum):
-    PENDING = "pending"
-    RUNNING = "running"
-    COMPLETED = "completed"
-    FAILED = "failed"
-    CANCELLED = "cancelled"
+    PENDING = 0
+    RUNNING = 1
+    COMPLETED = 2
+    FAILED = 3
+    CANCELLED = 4
 
 
 class DataItem(BaseModel):
@@ -50,6 +51,34 @@ class TaskConfig(BaseModel):
     timeout: int = 300
 
 
+class Task(BaseModel):
+    """数据库任务模型"""
+    task_id: str
+    name: str
+    platform: str
+    task_type: str = "search"  # search, monitor
+    keywords: List[str] = []
+    accounts: List[str] = []  # 监控账号
+    schedule: Optional[str] = None
+    status: int = 0  # 0=pending, 1=running, 2=completed, 3=failed, 4=cancelled
+    priority: int = 5  # 1=highest, 10=lowest, 5=normal
+    immediate: bool = False  # 是否立即执行
+    options: Dict[str, Any] = {}
+    storage_config: Dict[str, Any] = {}
+    retry_count: int = 3
+    current_retry: int = 0
+    timeout: int = 300
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+    started_at: Optional[datetime] = None
+    completed_at: Optional[datetime] = None
+    last_heartbeat: Optional[datetime] = None
+    error_message: Optional[str] = None
+    result_count: int = 0
+    progress: float = 0.0  # 进度百分比 0.0-1.0
+    worker_id: Optional[str] = None  # 处理该任务的工作进程ID
+
+
 class RateLimitInfo(BaseModel):
     """限流信息"""
     requests_per_minute: int
@@ -68,7 +97,7 @@ class PlatformAdapter(ABC):
         pass
     
     @abstractmethod
-    async def authenticate(self, credentials: Dict[str, Any]) -> bool:
+    async def authenticate(self, credentials: Optional[Dict[str, Any]] = None) -> bool:
         """认证"""
         pass
     
@@ -106,7 +135,7 @@ class StorageAdapter(ABC):
     """存储适配器接口"""
     
     @abstractmethod
-    async def save(self, items: List[DataItem]) -> bool:
+    async def save(self, items: List[DataItem], task_id: Optional[str] = None) -> bool:
         """保存数据"""
         pass
     
@@ -118,6 +147,30 @@ class StorageAdapter(ABC):
     @abstractmethod
     async def close(self) -> None:
         """关闭连接"""
+        pass
+
+
+class TaskManager(ABC):
+    """任务管理器接口"""
+    
+    @abstractmethod
+    async def get_pending_tasks(self, limit: int = 10) -> List[Task]:
+        """获取待处理的任务"""
+        pass
+    
+    @abstractmethod
+    async def update_task_status(self, task_id: str, status: int, **kwargs) -> bool:
+        """更新任务状态"""
+        pass
+    
+    @abstractmethod
+    async def save_task(self, task: Task) -> bool:
+        """保存任务"""
+        pass
+    
+    @abstractmethod
+    async def get_task(self, task_id: str) -> Optional[Task]:
+        """获取任务"""
         pass
 
 

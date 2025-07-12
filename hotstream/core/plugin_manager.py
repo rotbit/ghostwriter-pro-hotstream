@@ -39,7 +39,7 @@ class PluginManager:
             if dir_path not in self.plugin_dirs:
                 self.plugin_dirs.append(dir_path)
     
-    def discover_plugins(self) -> None:
+    async def discover_plugins(self) -> None:
         """发现并加载所有插件"""
         logger.info("开始发现插件...")
         
@@ -172,3 +172,7 @@ class PluginManager:
                 await plugin.cleanup()
             except Exception as e:
                 logger.error(f"插件清理失败 {plugin.name}: {e}")
+    
+    async def cleanup(self) -> None:
+        """清理所有插件（cleanup_all的别名）"""
+        await self.cleanup_all()

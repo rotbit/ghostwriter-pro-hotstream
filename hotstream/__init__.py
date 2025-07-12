@@ -9,7 +9,6 @@ __author__ = "HotStream Team"
 
 from .core.framework import HotStreamFramework
 from .core.plugin_manager import PluginManager
-from .core.scheduler import TaskScheduler
 from .core.data_processor import DataProcessor
 
 __all__ = [

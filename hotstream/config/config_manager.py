@@ -18,6 +18,11 @@ class ConfigManager:
         self._config: Dict[str, Any] = {}
         self._load_config()
     
+    @property
+    def data(self) -> Dict[str, Any]:
+        """获取配置数据"""
+        return self._config
+    
     def _find_config_file(self) -> str:
         """查找配置文件"""
         # 查找顺序：当前目录 -> 配置目录 -> 用户目录

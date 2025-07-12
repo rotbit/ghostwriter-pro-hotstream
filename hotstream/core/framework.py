@@ -7,9 +7,9 @@ from typing import Dict, List, Any, Optional
 from loguru import logger
 
 from .plugin_manager import PluginManager
-from .scheduler import TaskScheduler
+from .enhanced_scheduler import EnhancedTaskScheduler
 from .data_processor import DataProcessor
-from .interfaces import TaskConfig, TaskStatus, DataItem
+from .interfaces import TaskConfig, TaskStatus, DataItem, Task
 from ..config.config_manager import ConfigManager
 
 
@@ -21,8 +21,9 @@ class HotStreamFramework:
         self.config = ConfigManager(config_path)
         
         # 初始化核心组件
-        self.plugin_manager = PluginManager()
-        self.scheduler = TaskScheduler()
+        plugin_dirs = self.config.get('plugins.plugin_dirs', [])
+        self.plugin_manager = PluginManager(plugin_dirs)
+        self.scheduler = EnhancedTaskScheduler(self.config.data)
         self.data_processor = DataProcessor()
         
         # 运行状态
@@ -35,10 +36,11 @@ class HotStreamFramework:
         """初始化框架"""
         try:
             # 发现并加载插件
-            self.plugin_manager.discover_plugins()
+            await self.plugin_manager.discover_plugins()
             
             # 初始化调度器
-            await self.scheduler.initialize()
+            if not await self.scheduler.initialize():
+                return False
             
             # 初始化数据处理器
             await self.data_processor.initialize(self.plugin_manager)
@@ -189,5 +191,70 @@ class HotStreamFramework:
             "total_tasks": len(self._tasks),
             "supported_platforms": len(self.plugin_manager.list_platforms()),
             "loaded_plugins": len(self.plugin_manager.list_plugins()),
-            "scheduler_stats": self.scheduler.get_stats()
+            "scheduler_stats": self.scheduler.get_stats() if hasattr(self.scheduler, 'get_stats') else {}
         }
+    
+    async def create_search_task(self, task_id: str, name: str, platform: str, 
+                               keywords: List[str], priority: int = 5, 
+                               immediate: bool = False, storage_type: str = "mongodb",
+                               **options) -> bool:
+        """创建搜索任务到数据库"""
+        try:
+            from datetime import datetime
+            
+            task = Task(
+                task_id=task_id,
+                name=name,
+                platform=platform,
+                task_type="search",
+                keywords=keywords,
+                priority=priority,
+                immediate=immediate,
+                options=options,
+                storage_config={"type": storage_type},
+                created_at=datetime.utcnow()
+            )
+            
+            return await self.scheduler.add_immediate_task(task)
+            
+        except Exception as e:
+            logger.error(f"创建搜索任务失败: {e}")
+            return False
+    
+    async def create_monitor_task(self, task_id: str, name: str, platform: str,
+                                accounts: List[str], priority: int = 5,
+                                immediate: bool = False, storage_type: str = "mongodb",
+                                **options) -> bool:
+        """创建监控任务到数据库"""
+        try:
+            from datetime import datetime
+            
+            task = Task(
+                task_id=task_id,
+                name=name,
+                platform=platform,
+                task_type="monitor",
+                accounts=accounts,
+                priority=priority,
+                immediate=immediate,
+                options=options,
+                storage_config={"type": storage_type},
+                created_at=datetime.utcnow()
+            )
+            
+            return await self.scheduler.add_immediate_task(task)
+            
+        except Exception as e:
+            logger.error(f"创建监控任务失败: {e}")
+            return False
+    
+    async def get_task_stats(self) -> Dict[str, Any]:
+        """获取任务统计信息"""
+        try:
+            if hasattr(self.scheduler, 'get_task_stats'):
+                return await self.scheduler.get_task_stats()
+            else:
+                return self.get_framework_stats()
+        except Exception as e:
+            logger.error(f"获取任务统计失败: {e}")
+            return {}
