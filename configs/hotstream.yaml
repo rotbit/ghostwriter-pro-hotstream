@@ -46,10 +46,13 @@ platforms:
   medium:
     enabled: true
     rate_limit:
-      requests_per_minute: 60
-      requests_per_hour: 500
+      requests_per_minute: 30
+      requests_per_hour: 150
     config:
-      headless: true
+      headless: false
+      # Medium 登录凭据（可选，不提供将以匿名模式运行）
+      # email: "your-email@example.com"
+      # password: "your-password"
 
   zhihu:
     enabled: true
