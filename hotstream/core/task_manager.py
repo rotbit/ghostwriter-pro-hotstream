@@ -128,7 +128,7 @@ class MongoTaskManager(TaskManager):
             
             # 添加额外参数
             for key, value in kwargs.items():
-                if key in ['error_message', 'result_count', 'current_retry']:
+                if key in ['error_message', 'result_count', 'current_retry', 'worker_id']:
                     update_data[key] = value
             
             result = await self.tasks_collection.update_one(
