@@ -51,6 +51,14 @@ class TaskConfig(BaseModel):
     timeout: int = 300
 
 
+class LogEntry(BaseModel):
+    """日志条目"""
+    timestamp: datetime
+    level: str  # DEBUG, INFO, WARNING, ERROR
+    message: str
+    worker_id: Optional[str] = None
+
+
 class Task(BaseModel):
     """数据库任务模型"""
     task_id: str
@@ -77,6 +85,7 @@ class Task(BaseModel):
     result_count: int = 0
     progress: float = 0.0  # 进度百分比 0.0-1.0
     worker_id: Optional[str] = None  # 处理该任务的工作进程ID
+    logs: List[LogEntry] = []  # 执行过程中的日志
 
 
 class RateLimitInfo(BaseModel):

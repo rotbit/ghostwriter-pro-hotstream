@@ -242,185 +242,225 @@ class EnhancedTaskScheduler:
         start_time = datetime.utcnow()
         worker_id = f"worker_{id(asyncio.current_task())}"
         
-        try:
-            # 1. 更新任务状态为运行中，设置工作进程ID
-            await self.task_manager.update_task_status(
-                task.task_id, 
-                TaskStatus.RUNNING.value,
-                started_at=start_time,
-                worker_id=worker_id
-            )
-            
-            logger.info(f"开始处理任务 {task.task_id}: {task.name}")
-            
-            # 2. 获取并实例化平台适配器
-            platform_adapter_class = self.plugin_manager.get_platform_adapter(task.platform)
-            if not platform_adapter_class:
-                raise Exception(f"未找到平台适配器: {task.platform}")
-            
-            platform_adapter = platform_adapter_class()
-            
-            # 3. 初始化适配器
-            credentials = self.config.get('platforms', {}).get(task.platform, {})
-            if not await platform_adapter.authenticate(credentials):
-                raise Exception(f"平台认证失败: {task.platform}")
-            
-            # 4. 执行数据采集
-            collected_items = []
-            
-            # 更新进度：开始数据采集
-            await self.task_manager.update_heartbeat(task.task_id, 0.2)
-            
-            if task.task_type == "search" and task.keywords:
-                # 搜索任务
-                search_options = SearchOptions(**task.options)
-                target_count = search_options.limit
+        # 创建任务专用日志器
+        from .task_logger import create_task_logger
+        async with create_task_logger(task.task_id, self.task_manager, worker_id) as task_logger:
+            try:
+                await task_logger.info(f"开始处理任务: {task.name}")
                 
-                async for item in platform_adapter.search(task.keywords, search_options):
-                    collected_items.append(item)
-                    
-                    # 更新进度和心跳
-                    progress = 0.2 + (len(collected_items) / target_count) * 0.4  # 20%-60%
-                    await self.task_manager.update_heartbeat(task.task_id, min(progress, 0.6))
-                    
-                    # 防止单个任务采集过多数据
-                    if len(collected_items) >= target_count:
-                        break
-            
-            elif task.task_type == "monitor" and task.accounts:
-                # 监控任务
-                target_count = task.options.get('limit', 50)
+                # 1. 更新任务状态为运行中，设置工作进程ID
+                await self.task_manager.update_task_status(
+                    task.task_id, 
+                    TaskStatus.RUNNING.value,
+                    started_at=start_time,
+                    worker_id=worker_id
+                )
                 
-                if hasattr(platform_adapter, 'monitor_accounts'):
-                    async for item in platform_adapter.monitor_accounts(task.accounts, target_count):
+                logger.info(f"开始处理任务 {task.task_id}: {task.name}")
+                
+                # 2. 获取并实例化平台适配器
+                await task_logger.info(f"获取平台适配器: {task.platform}")
+                platform_adapter_class = self.plugin_manager.get_platform_adapter(task.platform)
+                if not platform_adapter_class:
+                    raise Exception(f"未找到平台适配器: {task.platform}")
+                
+                platform_adapter = platform_adapter_class()
+                
+                # 3. 初始化适配器
+                await task_logger.info("开始平台认证...")
+                credentials = self.config.get('platforms', {}).get(task.platform, {})
+                if not await platform_adapter.authenticate(credentials):
+                    raise Exception(f"平台认证失败: {task.platform}")
+                
+                await task_logger.info("平台认证成功")
+                
+                # 4. 执行数据采集
+                collected_items = []
+                
+                # 更新进度：开始数据采集
+                await self.task_manager.update_heartbeat(task.task_id, 0.2)
+                
+                if task.task_type == "search" and task.keywords:
+                    # 搜索任务
+                    search_options = SearchOptions(**task.options)
+                    target_count = search_options.limit
+                    
+                    await task_logger.info(f"开始搜索数据，关键词: {task.keywords}, 目标数量: {target_count}")
+                    
+                    async for item in platform_adapter.search(task.keywords, search_options):
                         collected_items.append(item)
                         
                         # 更新进度和心跳
                         progress = 0.2 + (len(collected_items) / target_count) * 0.4  # 20%-60%
                         await self.task_manager.update_heartbeat(task.task_id, min(progress, 0.6))
                         
+                        # 每采集20条记录一次进展
+                        if len(collected_items) % 20 == 0:
+                            await task_logger.info(f"已采集 {len(collected_items)}/{target_count} 条数据")
+                        
+                        # 防止单个任务采集过多数据
                         if len(collected_items) >= target_count:
                             break
-                else:
-                    raise Exception(f"平台 {task.platform} 不支持账号监控")
-            
-            else:
-                raise Exception(f"不支持的任务类型: {task.task_type}")
-            
-            logger.info(f"任务 {task.task_id} 采集到 {len(collected_items)} 条原始数据")
-            
-            # 5. 数据提取和转换
-            await self.task_manager.update_heartbeat(task.task_id, 0.6)
-            
-            extractor = self._extractors.get(task.platform)
-            if not extractor:
-                logger.warning(f"未找到 {task.platform} 的数据提取器，使用原始数据")
-                processed_items = collected_items
-            else:
-                processed_items = []
-                total_items = len(collected_items)
                 
-                for i, item in enumerate(collected_items):
-                    try:
-                        # 将DataItem转换为字典，然后用提取器处理
-                        raw_data = item.model_dump()
-                        processed_item = await extractor.extract(raw_data)
-                        
-                        # 验证数据
-                        if extractor.validate(processed_item):
-                            processed_items.append(processed_item)
-                        else:
-                            logger.warning(f"数据验证失败，跳过: {processed_item.id}")
-                        
-                        # 更新进度：60%-80%
-                        progress = 0.6 + (i / total_items) * 0.2
-                        if i % 10 == 0:  # 每10条更新一次心跳
-                            await self.task_manager.update_heartbeat(task.task_id, progress)
+                elif task.task_type == "monitor" and task.accounts:
+                    # 监控任务
+                    target_count = task.options.get('limit', 50)
                     
-                    except Exception as extract_error:
-                        logger.warning(f"数据提取失败: {extract_error}")
-                        continue
-                
-                logger.info(f"任务 {task.task_id} 处理后得到 {len(processed_items)} 条有效数据")
-            
-            # 6. 数据存储
-            await self.task_manager.update_heartbeat(task.task_id, 0.8)
-            
-            if processed_items:
-                storage_success = False
-                
-                # 尝试存储到配置的存储适配器
-                storage_type = task.storage_config.get('type', 'mongodb')
-                storage_adapter = self._storage_adapters.get(storage_type)
-                
-                if storage_adapter:
-                    if await storage_adapter.save(processed_items, task.task_id):
-                        storage_success = True
-                        logger.info(f"数据已保存到 {storage_type}，关联任务ID: {task.task_id}")
+                    await task_logger.info(f"开始监控账号: {task.accounts}, 目标数量: {target_count}")
+                    
+                    if hasattr(platform_adapter, 'monitor_accounts'):
+                        async for item in platform_adapter.monitor_accounts(task.accounts, target_count):
+                            collected_items.append(item)
+                            
+                            # 更新进度和心跳
+                            progress = 0.2 + (len(collected_items) / target_count) * 0.4  # 20%-60%
+                            await self.task_manager.update_heartbeat(task.task_id, min(progress, 0.6))
+                            
+                            # 每采集10条记录一次进展
+                            if len(collected_items) % 10 == 0:
+                                await task_logger.info(f"已采集 {len(collected_items)}/{target_count} 条数据")
+                            
+                            if len(collected_items) >= target_count:
+                                break
                     else:
-                        logger.error(f"保存到 {storage_type} 失败")
+                        raise Exception(f"平台 {task.platform} 不支持账号监控")
                 
-                # 如果主存储失败，尝试备用存储
-                if not storage_success and 'json' in self._storage_adapters:
-                    if await self._storage_adapters['json'].save(processed_items, task.task_id):
-                        storage_success = True
-                        logger.info("数据已保存到JSON备用存储")
+                else:
+                    raise Exception(f"不支持的任务类型: {task.task_type}")
                 
-                if not storage_success:
-                    raise Exception("所有存储方式都失败")
+                await task_logger.info(f"数据采集完成，共采集 {len(collected_items)} 条原始数据")
+                logger.info(f"任务 {task.task_id} 采集到 {len(collected_items)} 条原始数据")
+            
+                # 5. 数据提取和转换
+                await self.task_manager.update_heartbeat(task.task_id, 0.6)
+                await task_logger.info("开始数据提取和转换...")
                 
-                # 更新进度：90%
-                await self.task_manager.update_heartbeat(task.task_id, 0.9)
+                extractor = self._extractors.get(task.platform)
+                if not extractor:
+                    await task_logger.warning(f"未找到 {task.platform} 的数据提取器，使用原始数据")
+                    logger.warning(f"未找到 {task.platform} 的数据提取器，使用原始数据")
+                    processed_items = collected_items
+                else:
+                    processed_items = []
+                    total_items = len(collected_items)
+                    
+                    for i, item in enumerate(collected_items):
+                        try:
+                            # 将DataItem转换为字典，然后用提取器处理
+                            raw_data = item.model_dump()
+                            processed_item = await extractor.extract(raw_data)
+                            
+                            # 验证数据
+                            if extractor.validate(processed_item):
+                                processed_items.append(processed_item)
+                            else:
+                                await task_logger.warning(f"数据验证失败，跳过: {processed_item.id}")
+                                logger.warning(f"数据验证失败，跳过: {processed_item.id}")
+                            
+                            # 更新进度：60%-80%
+                            progress = 0.6 + (i / total_items) * 0.2
+                            if i % 10 == 0:  # 每10条更新一次心跳
+                                await self.task_manager.update_heartbeat(task.task_id, progress)
+                                await task_logger.info(f"数据处理进度: {i+1}/{total_items}")
+                        
+                        except Exception as extract_error:
+                            await task_logger.error(f"数据提取失败: {extract_error}")
+                            logger.warning(f"数据提取失败: {extract_error}")
+                            continue
+                    
+                    await task_logger.info(f"数据处理完成，得到 {len(processed_items)} 条有效数据")
+                    logger.info(f"任务 {task.task_id} 处理后得到 {len(processed_items)} 条有效数据")
             
-            # 7. 更新任务状态为完成
-            await self.task_manager.update_task_status(
-                task.task_id,
-                TaskStatus.COMPLETED.value,
-                completed_at=datetime.utcnow(),
-                result_count=len(processed_items)
-            )
-            
-            # 最终进度：100%
-            await self.task_manager.update_heartbeat(task.task_id, 1.0)
-            
-            # 8. 清理适配器资源
-            await platform_adapter.cleanup()
-            
-            duration = datetime.utcnow() - start_time
-            logger.info(f"任务 {task.task_id} 处理完成，耗时 {duration.total_seconds():.1f}秒")
-            
-        except Exception as e:
-            error_msg = str(e)
-            logger.error(f"任务 {task.task_id} 处理失败: {error_msg}")
-            
-            # 检查是否还有重试次数
-            next_retry = task.current_retry + 1
-            if next_retry <= task.retry_count:
-                # 计算重试延迟（指数退避）
-                retry_delay = min(60 * (2 ** (next_retry - 1)), 300)  # 最大5分钟
+                # 6. 数据存储
+                await self.task_manager.update_heartbeat(task.task_id, 0.8)
+                await task_logger.info("开始数据存储...")
                 
-                logger.info(f"任务 {task.task_id} 失败，将在 {retry_delay} 秒后进行第 {next_retry} 次重试")
+                if processed_items:
+                    storage_success = False
+                    
+                    # 尝试存储到配置的存储适配器
+                    storage_type = task.storage_config.get('type', 'mongodb')
+                    storage_adapter = self._storage_adapters.get(storage_type)
+                    
+                    await task_logger.info(f"尝试保存到 {storage_type} 存储")
+                    
+                    if storage_adapter:
+                        if await storage_adapter.save(processed_items, task.task_id):
+                            storage_success = True
+                            await task_logger.info(f"数据已保存到 {storage_type}，关联任务ID: {task.task_id}")
+                            logger.info(f"数据已保存到 {storage_type}，关联任务ID: {task.task_id}")
+                        else:
+                            await task_logger.error(f"保存到 {storage_type} 失败")
+                            logger.error(f"保存到 {storage_type} 失败")
+                    
+                    # 如果主存储失败，尝试备用存储
+                    if not storage_success and 'json' in self._storage_adapters:
+                        await task_logger.info("尝试使用JSON备用存储")
+                        if await self._storage_adapters['json'].save(processed_items, task.task_id):
+                            storage_success = True
+                            await task_logger.info("数据已保存到JSON备用存储")
+                            logger.info("数据已保存到JSON备用存储")
+                    
+                    if not storage_success:
+                        raise Exception("所有存储方式都失败")
+                    
+                    # 更新进度：90%
+                    await self.task_manager.update_heartbeat(task.task_id, 0.9)
                 
-                # 更新任务为重试状态
+                # 7. 更新任务状态为完成
+                await task_logger.info("任务即将完成，更新状态...")
                 await self.task_manager.update_task_status(
                     task.task_id,
-                    TaskStatus.PENDING.value,
-                    error_message=f"重试 {next_retry}/{task.retry_count}: {error_msg}",
-                    current_retry=next_retry
-                )
-                
-                # 异步等待后重新调度
-                asyncio.create_task(self._schedule_retry(task.task_id, retry_delay))
-            else:
-                # 所有重试次数用完，标记为最终失败
-                await self.task_manager.update_task_status(
-                    task.task_id,
-                    TaskStatus.FAILED.value,
+                    TaskStatus.COMPLETED.value,
                     completed_at=datetime.utcnow(),
-                    error_message=f"所有重试失败: {error_msg}",
-                    current_retry=next_retry
+                    result_count=len(processed_items)
                 )
-                logger.error(f"任务 {task.task_id} 重试 {task.retry_count} 次后最终失败")
+                
+                # 最终进度：100%
+                await self.task_manager.update_heartbeat(task.task_id, 1.0)
+                
+                # 8. 清理适配器资源
+                await platform_adapter.cleanup()
+                
+                duration = datetime.utcnow() - start_time
+                await task_logger.info(f"任务处理完成，耗时 {duration.total_seconds():.1f}秒，结果数量: {len(processed_items)}")
+                logger.info(f"任务 {task.task_id} 处理完成，耗时 {duration.total_seconds():.1f}秒")
+            
+            except Exception as e:
+                error_msg = str(e)
+                await task_logger.error(f"任务处理失败: {error_msg}")
+                logger.error(f"任务 {task.task_id} 处理失败: {error_msg}")
+                
+                # 检查是否还有重试次数
+                next_retry = task.current_retry + 1
+                if next_retry <= task.retry_count:
+                    # 计算重试延迟（指数退避）
+                    retry_delay = min(60 * (2 ** (next_retry - 1)), 300)  # 最大5分钟
+                    
+                    await task_logger.info(f"任务失败，将在 {retry_delay} 秒后进行第 {next_retry} 次重试")
+                    logger.info(f"任务 {task.task_id} 失败，将在 {retry_delay} 秒后进行第 {next_retry} 次重试")
+                    
+                    # 更新任务为重试状态
+                    await self.task_manager.update_task_status(
+                        task.task_id,
+                        TaskStatus.PENDING.value,
+                        error_message=f"重试 {next_retry}/{task.retry_count}: {error_msg}",
+                        current_retry=next_retry
+                    )
+                    
+                    # 异步等待后重新调度
+                    asyncio.create_task(self._schedule_retry(task.task_id, retry_delay))
+                else:
+                    # 所有重试次数用完，标记为最终失败
+                    await task_logger.error(f"所有重试失败，任务最终失败")
+                    await self.task_manager.update_task_status(
+                        task.task_id,
+                        TaskStatus.FAILED.value,
+                        completed_at=datetime.utcnow(),
+                        error_message=f"所有重试失败: {error_msg}",
+                        current_retry=next_retry
+                    )
+                    logger.error(f"任务 {task.task_id} 重试 {task.retry_count} 次后最终失败")
     
     async def _schedule_retry(self, task_id: str, delay: float) -> None:
         """调度重试任务"""

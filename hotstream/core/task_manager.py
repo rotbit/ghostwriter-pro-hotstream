@@ -128,7 +128,7 @@ class MongoTaskManager(TaskManager):
             
             # 添加额外参数
             for key, value in kwargs.items():
-                if key in ['error_message', 'result_count', 'current_retry', 'worker_id']:
+                if key in ['error_message', 'result_count', 'current_retry', 'worker_id', 'started_at', 'completed_at']:
                     update_data[key] = value
             
             result = await self.tasks_collection.update_one(
@@ -248,6 +248,89 @@ class MongoTaskManager(TaskManager):
         except Exception as e:
             logger.error(f"重置运行中任务失败: {e}")
             return 0
+    
+    async def append_log(self, task_id: str, level: str, message: str, worker_id: Optional[str] = None) -> bool:
+        """向任务添加日志条目"""
+        if not self.initialized or self.tasks_collection is None:
+            logger.error("任务管理器未初始化")
+            return False
+        
+        try:
+            from .interfaces import LogEntry
+            
+            log_entry = LogEntry(
+                timestamp=datetime.utcnow(),
+                level=level,
+                message=message,
+                worker_id=worker_id
+            )
+            
+            # 将日志条目追加到数组
+            result = await self.tasks_collection.update_one(
+                {"task_id": task_id},
+                {
+                    "$push": {"logs": log_entry.model_dump()},
+                    "$set": {"updated_at": datetime.utcnow()}
+                }
+            )
+            
+            return result.modified_count > 0
+            
+        except Exception as e:
+            logger.error(f"添加任务日志失败: {e}")
+            return False
+    
+    async def get_task_logs(self, task_id: str, limit: Optional[int] = None) -> List[Dict[str, Any]]:
+        """获取任务日志"""
+        if not self.initialized or self.tasks_collection is None:
+            logger.error("任务管理器未初始化")
+            return []
+        
+        try:
+            # 使用聚合管道获取日志
+            pipeline = [
+                {"$match": {"task_id": task_id}},
+                {"$project": {"logs": 1}},
+                {"$unwind": "$logs"},
+                {"$sort": {"logs.timestamp": -1}}  # 最新的在前
+            ]
+            
+            if limit:
+                pipeline.append({"$limit": limit})
+            
+            cursor = self.tasks_collection.aggregate(pipeline)
+            logs = []
+            async for doc in cursor:
+                logs.append(doc["logs"])
+            
+            return logs
+            
+        except Exception as e:
+            logger.error(f"获取任务日志失败: {e}")
+            return []
+    
+    async def clear_task_logs(self, task_id: str) -> bool:
+        """清空任务日志"""
+        if not self.initialized or self.tasks_collection is None:
+            logger.error("任务管理器未初始化")
+            return False
+        
+        try:
+            result = await self.tasks_collection.update_one(
+                {"task_id": task_id},
+                {
+                    "$set": {
+                        "logs": [],
+                        "updated_at": datetime.utcnow()
+                    }
+                }
+            )
+            
+            return result.modified_count > 0
+            
+        except Exception as e:
+            logger.error(f"清空任务日志失败: {e}")
+            return False
     
     async def update_heartbeat(self, task_id: str, progress: float = None) -> bool:
         """更新任务心跳和进度"""
