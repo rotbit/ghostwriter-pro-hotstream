@@ -256,6 +256,7 @@ class TwitterAdapter(PlatformAdapter):
                         id=tweet_id,
                         platform=self.platform_name,
                         content=content,
+                        title=content[:50] + "..." if len(content) > 50 else content,  # 使用内容前50字符作为标题
                         author=username or "unknown",
                         url=tweet_url or f"{self.nitter_instance}/search?q={quote(keyword)}",
                         created_at=timestamp,

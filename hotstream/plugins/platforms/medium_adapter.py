@@ -524,6 +524,7 @@ class MediumAdapter(PlatformAdapter):
                 id=unique_id,
                 platform="medium",
                 content=content[:500],  # 限制内容长度
+                title=title,  # 添加标题字段用于去重
                 author=author,
                 url=url,
                 created_at=datetime.utcnow().isoformat(),

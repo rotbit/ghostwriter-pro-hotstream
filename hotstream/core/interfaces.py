@@ -22,11 +22,21 @@ class DataItem(BaseModel):
     id: str
     platform: str
     content: str
+    title: Optional[str] = None  # 标题字段，用于去重
     author: Optional[str] = None
     url: Optional[str] = None
     created_at: Optional[str] = None
     metadata: Dict[str, Any] = {}
     raw_data: Dict[str, Any] = {}
+    task_id: Optional[str] = None  # 关联的任务ID
+    
+    def get_dedup_key(self) -> str:
+        """生成去重键，基于标题和任务ID"""
+        import hashlib
+        # 使用标题和任务ID组合生成唯一键
+        title_text = self.title or self.content[:100]  # 如果没有标题，使用内容前100字符
+        key_content = f"{self.task_id or 'unknown'}_{title_text}_{self.platform}"
+        return hashlib.md5(key_content.encode('utf-8')).hexdigest()
 
 
 class SearchOptions(BaseModel):

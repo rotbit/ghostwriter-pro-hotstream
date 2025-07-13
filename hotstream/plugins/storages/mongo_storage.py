@@ -55,14 +55,19 @@ class MongoStorageAdapter(StorageAdapter):
             # 创建唯一索引
             await self.collection.create_index("id", unique=True)
             
+            # 创建去重键唯一索引 - 基于标题、任务ID和平台的组合
+            await self.collection.create_index("dedup_key", unique=True)
+            
             # 创建查询索引
             await self.collection.create_index("platform")
             await self.collection.create_index("author")
             await self.collection.create_index("created_at")
             await self.collection.create_index("task_id")
+            await self.collection.create_index("title")
             await self.collection.create_index([("platform", 1), ("created_at", -1)])
             await self.collection.create_index([("platform", 1), ("author", 1)])
             await self.collection.create_index([("task_id", 1), ("created_at", -1)])
+            await self.collection.create_index([("task_id", 1), ("title", 1)])
             
             # 全文索引
             await self.collection.create_index([("content", "text")])
@@ -73,7 +78,7 @@ class MongoStorageAdapter(StorageAdapter):
             logger.warning(f"创建索引时出现警告: {e}")
     
     async def save(self, items: List[DataItem], task_id: Optional[str] = None) -> bool:
-        """保存数据到 MongoDB"""
+        """保存数据到 MongoDB - 使用upsert实现去重更新"""
         if not self.initialized:
             if not await self.initialize():
                 return False
@@ -83,49 +88,57 @@ class MongoStorageAdapter(StorageAdapter):
             return True
         
         try:
-            # 转换为字典格式
-            documents = []
+            # 准备upsert操作
+            upsert_ops = []
+            inserted_count = 0
+            updated_count = 0
+            
             for item in items:
+                # 确保设置task_id
+                if task_id and not item.task_id:
+                    item.task_id = task_id
+                
                 doc = item.model_dump()
                 doc['saved_at'] = datetime.utcnow()
-                if task_id:
-                    doc['task_id'] = task_id
-                documents.append(doc)
-            
-            # 批量插入，处理重复数据
-            inserted_count = 0
-            duplicate_count = 0
-            
-            # 分批处理
-            for i in range(0, len(documents), self.batch_size):
-                batch = documents[i:i + self.batch_size]
+                doc['updated_at'] = datetime.utcnow()
                 
-                try:
-                    result = await self.collection.insert_many(
-                        batch, 
-                        ordered=False  # 允许部分失败
-                    )
-                    inserted_count += len(result.inserted_ids)
-                    
-                except Exception as batch_error:
-                    # 处理重复键错误
-                    if "duplicate key" in str(batch_error).lower():
-                        # 逐个插入来处理重复数据
-                        for doc in batch:
-                            try:
-                                await self.collection.insert_one(doc)
-                                inserted_count += 1
-                            except Exception as single_error:
-                                if "duplicate key" in str(single_error).lower():
-                                    duplicate_count += 1
-                                else:
-                                    logger.error(f"插入单个文档失败: {single_error}")
-                    else:
-                        logger.error(f"批量插入失败: {batch_error}")
-                        return False
+                # 生成去重键
+                dedup_key = item.get_dedup_key()
+                doc['dedup_key'] = dedup_key
+                
+                # 构建upsert操作
+                upsert_ops.append({
+                    'filter': {'dedup_key': dedup_key},
+                    'update': {
+                        '$set': doc,
+                        '$setOnInsert': {'first_seen': datetime.utcnow()}
+                    },
+                    'upsert': True
+                })
+            
+            # 分批执行upsert操作
+            for i in range(0, len(upsert_ops), self.batch_size):
+                batch = upsert_ops[i:i + self.batch_size]
+                
+                for op in batch:
+                    try:
+                        result = await self.collection.update_one(
+                            op['filter'],
+                            op['update'],
+                            upsert=True
+                        )
+                        
+                        if result.upserted_id:
+                            inserted_count += 1
+                        elif result.modified_count > 0:
+                            updated_count += 1
+                            
+                    except Exception as single_error:
+                        logger.error(f"Upsert单个文档失败: {single_error}")
+                        continue
             
             total_items = len(items)
-            logger.info(f"MongoDB 保存完成: 总数 {total_items}, 新增 {inserted_count}, 重复 {duplicate_count}")
+            logger.info(f"MongoDB 保存完成: 总数 {total_items}, 新增 {inserted_count}, 更新 {updated_count}")
             
             return True
             

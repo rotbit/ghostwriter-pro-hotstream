@@ -288,6 +288,8 @@ class EnhancedTaskScheduler:
                     await task_logger.info(f"开始搜索数据，关键词: {task.keywords}, 目标数量: {target_count}")
                     
                     async for item in platform_adapter.search(task.keywords, search_options):
+                        # 确保设置task_id
+                        item.task_id = task.task_id
                         collected_items.append(item)
                         
                         # 更新进度和心跳
@@ -310,6 +312,8 @@ class EnhancedTaskScheduler:
                     
                     if hasattr(platform_adapter, 'monitor_accounts'):
                         async for item in platform_adapter.monitor_accounts(task.accounts, target_count):
+                            # 确保设置task_id
+                            item.task_id = task.task_id
                             collected_items.append(item)
                             
                             # 更新进度和心跳
