@@ -138,7 +138,7 @@ class NumbersExtractor(BaseScraper):
                     base_url = area_code_info.get('url', '')
                     if base_url:
                         # 添加排序参数，从newest开始
-                        url_with_sort = f"{base_url}?sort=newest&sortcode="
+                        url_with_sort = f"{base_url}?sort=newest&sortcode=&moreResults=true&limit=100"
                         urls.append({
                             'region': region_name,
                             'area_code': area_code_info.get('code', ''),
@@ -169,12 +169,12 @@ class NumbersExtractor(BaseScraper):
             await page.wait_for_timeout(2000)
             
             # 提取号码数据
-            page_numbers = await page.evaluate("""
+            page_numbers = await page.evaluate(r"""
                 () => {
                     const numbers = [];
                     
                     // 查找包含号码信息的元素
-                    const numberElements = document.querySelectorAll('.number-item, .phone-number, .listing-item, [data-phone], .number-card');
+                    const numberElements = document.querySelectorAll('.number-item, .phone-number, .listing-item, [data-phone], .number-card, .product-item, .item');
                     
                     if (numberElements.length === 0) {
                         // 如果没有找到标准选择器，尝试其他常见模式
@@ -182,21 +182,37 @@ class NumbersExtractor(BaseScraper):
                         allElements.forEach(el => {
                             const text = el.textContent || '';
                             // 查找电话号码模式 (xxx) xxx-xxxx
-                            const phonePattern = /\(\d{3}\)\s*\d{3}[-.\s]?\d{4}/g;
+                            const phonePattern = /\\(\\d{3}\\)\\s*\\d{3}[-.\\s]?\\d{4}/g;
                             const matches = text.match(phonePattern);
                             if (matches) {
                                 matches.forEach(match => {
-                                    // 查找价格信息
-                                    const priceEl = el.querySelector('[data-price], .price, [class*="price"]') || 
-                                                  el.parentElement?.querySelector('[data-price], .price, [class*="price"]') ||
-                                                  el.closest('[data-price], .price, [class*="price"]');
+                                    // 查找价格信息 - 多种查找方式
+                                    let priceEl = el.querySelector('[data-price], .price, [class*="price"], .cost, .amount') || 
+                                                 el.parentElement?.querySelector('[data-price], .price, [class*="price"], .cost, .amount') ||
+                                                 el.closest('[data-price], .price, [class*="price"], .cost, .amount');
+                                    
+                                    // 如果还是没找到，尝试在父元素中查找
+                                    if (!priceEl) {
+                                        let parent = el.parentElement;
+                                        while (parent && parent !== document.body) {
+                                            const priceCandidate = parent.querySelector('[data-price], .price, [class*="price"], .cost, .amount');
+                                            if (priceCandidate) {
+                                                priceEl = priceCandidate;
+                                                break;
+                                            }
+                                            parent = parent.parentElement;
+                                        }
+                                    }
+                                    
                                     const priceText = priceEl?.textContent || '';
-                                    const priceMatch = priceText.match(/\$[\d,]+\.?\d*/);
+                                    // 更灵活的价格匹配模式
+                                    const priceMatch = priceText.match(/\$[\d,]+\.?\d*/g);
+                                    const finalPrice = priceMatch ? priceMatch[0] : '';
                                     
                                     if (!numbers.some(n => n.number === match.trim())) {
                                         numbers.push({
                                             number: match.trim(),
-                                            price: priceMatch ? priceMatch[0] : '',
+                                            price: finalPrice,
                                             element_html: el.outerHTML.substring(0, 200)
                                         });
                                     }
@@ -210,11 +226,39 @@ class NumbersExtractor(BaseScraper):
                             const phoneMatch = numberText.match(phonePattern);
                             
                             if (phoneMatch) {
-                                const priceMatch = numberText.match(/\$[\d,]+\.?\d*/);
+                                // 尝试多种价格提取方式
+                                let priceText = '';
+                                
+                                // 方法1: 直接在当前元素中查找价格
+                                let priceEl = el.querySelector('[data-price], .price, [class*="price"], .cost, .amount');
+                                if (priceEl) {
+                                    priceText = priceEl.textContent;
+                                }
+                                
+                                // 方法2: 在父元素中查找
+                                if (!priceText) {
+                                    let parent = el.parentElement;
+                                    while (parent && parent !== document.body) {
+                                        const priceCandidate = parent.querySelector('[data-price], .price, [class*="price"], .cost, .amount');
+                                        if (priceCandidate) {
+                                            priceText = priceCandidate.textContent;
+                                            break;
+                                        }
+                                        parent = parent.parentElement;
+                                    }
+                                }
+                                
+                                // 方法3: 从完整文本中提取价格
+                                if (!priceText) {
+                                    priceText = numberText;
+                                }
+                                
+                                const priceMatch = priceText.match(/\$[\d,]+\.?\d*/g);
+                                const finalPrice = priceMatch ? priceMatch[0] : '';
                                 
                                 numbers.push({
                                     number: phoneMatch[0].trim(),
-                                    price: priceMatch ? priceMatch[0] : '',
+                                    price: finalPrice,
                                     raw_text: numberText.trim()
                                 });
                             }
@@ -240,7 +284,7 @@ class NumbersExtractor(BaseScraper):
                 self.save_numbers_to_mongodb(numbers)
             
             # 检查是否有下一页
-            has_next_page = await page.evaluate("""
+            has_next_page = await page.evaluate(r"""
                 () => {
                     // 查找包含"Next"文本的链接
                     const allLinks = document.querySelectorAll('a[href*="page"]');
