@@ -1,0 +1,3628 @@
+{
+  "regions": {
+    "Account TopUp": {
+      "name": "Account TopUp",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Alabama": {
+      "name": "Alabama",
+      "area_codes": [
+        {
+          "code": "205",
+          "url": "https://excellentnumbers.com/categories/Alabama/205"
+        },
+        {
+          "code": "251",
+          "url": "https://excellentnumbers.com/categories/Alabama/251"
+        },
+        {
+          "code": "256",
+          "url": "https://excellentnumbers.com/categories/Alabama/256"
+        },
+        {
+          "code": "334",
+          "url": "https://excellentnumbers.com/categories/Alabama/334"
+        },
+        {
+          "code": "659",
+          "url": "https://excellentnumbers.com/categories/Alabama/659"
+        },
+        {
+          "code": "938",
+          "url": "https://excellentnumbers.com/categories/Alabama/938"
+        }
+      ],
+      "total_area_codes": 6
+    },
+    "Alaska": {
+      "name": "Alaska",
+      "area_codes": [
+        {
+          "code": "907",
+          "url": "https://excellentnumbers.com/categories/Alaska/907"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "Alberta": {
+      "name": "Alberta",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Arizona": {
+      "name": "Arizona",
+      "area_codes": [
+        {
+          "code": "480",
+          "url": "https://excellentnumbers.com/categories/Arizona/480"
+        },
+        {
+          "code": "520",
+          "url": "https://excellentnumbers.com/categories/Arizona/520"
+        },
+        {
+          "code": "602",
+          "url": "https://excellentnumbers.com/categories/Arizona/602"
+        },
+        {
+          "code": "623",
+          "url": "https://excellentnumbers.com/categories/Arizona/623"
+        },
+        {
+          "code": "928",
+          "url": "https://excellentnumbers.com/categories/Arizona/928"
+        }
+      ],
+      "total_area_codes": 5
+    },
+    "Arkansas": {
+      "name": "Arkansas",
+      "area_codes": [
+        {
+          "code": "327",
+          "url": "https://excellentnumbers.com/categories/Arkansas/327"
+        },
+        {
+          "code": "479",
+          "url": "https://excellentnumbers.com/categories/Arkansas/479"
+        },
+        {
+          "code": "501",
+          "url": "https://excellentnumbers.com/categories/Arkansas/501"
+        },
+        {
+          "code": "870",
+          "url": "https://excellentnumbers.com/categories/Arkansas/870"
+        }
+      ],
+      "total_area_codes": 4
+    },
+    "British Columbia": {
+      "name": "British Columbia",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "California": {
+      "name": "California",
+      "area_codes": [
+        {
+          "code": "209",
+          "url": "https://excellentnumbers.com/categories/California/209"
+        },
+        {
+          "code": "213",
+          "url": "https://excellentnumbers.com/categories/California/213"
+        },
+        {
+          "code": "279",
+          "url": "https://excellentnumbers.com/categories/California/279"
+        },
+        {
+          "code": "310",
+          "url": "https://excellentnumbers.com/categories/California/310"
+        },
+        {
+          "code": "323",
+          "url": "https://excellentnumbers.com/categories/California/323"
+        },
+        {
+          "code": "341",
+          "url": "https://excellentnumbers.com/categories/California/341"
+        },
+        {
+          "code": "350",
+          "url": "https://excellentnumbers.com/categories/California/350"
+        },
+        {
+          "code": "369",
+          "url": "https://excellentnumbers.com/categories/California/369"
+        },
+        {
+          "code": "408",
+          "url": "https://excellentnumbers.com/categories/California/408"
+        },
+        {
+          "code": "415",
+          "url": "https://excellentnumbers.com/categories/California/415"
+        },
+        {
+          "code": "424",
+          "url": "https://excellentnumbers.com/categories/California/424"
+        },
+        {
+          "code": "442",
+          "url": "https://excellentnumbers.com/categories/California/442"
+        },
+        {
+          "code": "510",
+          "url": "https://excellentnumbers.com/categories/California/510"
+        },
+        {
+          "code": "530",
+          "url": "https://excellentnumbers.com/categories/California/530"
+        },
+        {
+          "code": "559",
+          "url": "https://excellentnumbers.com/categories/California/559"
+        },
+        {
+          "code": "562",
+          "url": "https://excellentnumbers.com/categories/California/562"
+        },
+        {
+          "code": "619",
+          "url": "https://excellentnumbers.com/categories/California/619"
+        },
+        {
+          "code": "626",
+          "url": "https://excellentnumbers.com/categories/California/626"
+        },
+        {
+          "code": "628",
+          "url": "https://excellentnumbers.com/categories/California/628"
+        },
+        {
+          "code": "650",
+          "url": "https://excellentnumbers.com/categories/California/650"
+        },
+        {
+          "code": "657",
+          "url": "https://excellentnumbers.com/categories/California/657"
+        },
+        {
+          "code": "661",
+          "url": "https://excellentnumbers.com/categories/California/661"
+        },
+        {
+          "code": "669",
+          "url": "https://excellentnumbers.com/categories/California/669"
+        },
+        {
+          "code": "707",
+          "url": "https://excellentnumbers.com/categories/California/707"
+        },
+        {
+          "code": "714",
+          "url": "https://excellentnumbers.com/categories/California/714"
+        },
+        {
+          "code": "747",
+          "url": "https://excellentnumbers.com/categories/California/747"
+        },
+        {
+          "code": "760",
+          "url": "https://excellentnumbers.com/categories/California/760"
+        },
+        {
+          "code": "805",
+          "url": "https://excellentnumbers.com/categories/California/805"
+        },
+        {
+          "code": "818",
+          "url": "https://excellentnumbers.com/categories/California/818"
+        },
+        {
+          "code": "820",
+          "url": "https://excellentnumbers.com/categories/California/820"
+        },
+        {
+          "code": "831",
+          "url": "https://excellentnumbers.com/categories/California/831"
+        },
+        {
+          "code": "840",
+          "url": "https://excellentnumbers.com/categories/California/840"
+        },
+        {
+          "code": "858",
+          "url": "https://excellentnumbers.com/categories/California/858"
+        },
+        {
+          "code": "909",
+          "url": "https://excellentnumbers.com/categories/California/909"
+        },
+        {
+          "code": "916",
+          "url": "https://excellentnumbers.com/categories/California/916"
+        },
+        {
+          "code": "925",
+          "url": "https://excellentnumbers.com/categories/California/925"
+        },
+        {
+          "code": "949",
+          "url": "https://excellentnumbers.com/categories/California/949"
+        },
+        {
+          "code": "951",
+          "url": "https://excellentnumbers.com/categories/California/951"
+        }
+      ],
+      "total_area_codes": 38
+    },
+    "Canada": {
+      "name": "Canada",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Colorado": {
+      "name": "Colorado",
+      "area_codes": [
+        {
+          "code": "303",
+          "url": "https://excellentnumbers.com/categories/Colorado/303"
+        },
+        {
+          "code": "719",
+          "url": "https://excellentnumbers.com/categories/Colorado/719"
+        },
+        {
+          "code": "720",
+          "url": "https://excellentnumbers.com/categories/Colorado/720"
+        },
+        {
+          "code": "970",
+          "url": "https://excellentnumbers.com/categories/Colorado/970"
+        },
+        {
+          "code": "983",
+          "url": "https://excellentnumbers.com/categories/Colorado/983"
+        }
+      ],
+      "total_area_codes": 5
+    },
+    "Connecticut": {
+      "name": "Connecticut",
+      "area_codes": [
+        {
+          "code": "203",
+          "url": "https://excellentnumbers.com/categories/Connecticut/203"
+        },
+        {
+          "code": "475",
+          "url": "https://excellentnumbers.com/categories/Connecticut/475"
+        },
+        {
+          "code": "860",
+          "url": "https://excellentnumbers.com/categories/Connecticut/860"
+        },
+        {
+          "code": "959",
+          "url": "https://excellentnumbers.com/categories/Connecticut/959"
+        }
+      ],
+      "total_area_codes": 4
+    },
+    "Delaware": {
+      "name": "Delaware",
+      "area_codes": [
+        {
+          "code": "302",
+          "url": "https://excellentnumbers.com/categories/Delaware/302"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "District of Columbia": {
+      "name": "District of Columbia",
+      "area_codes": [
+        {
+          "code": "202",
+          "url": "https://excellentnumbers.com/categories/District of Columbia/202"
+        },
+        {
+          "code": "771",
+          "url": "https://excellentnumbers.com/categories/District of Columbia/771"
+        }
+      ],
+      "total_area_codes": 2
+    },
+    "Florida": {
+      "name": "Florida",
+      "area_codes": [
+        {
+          "code": "239",
+          "url": "https://excellentnumbers.com/categories/Florida/239"
+        },
+        {
+          "code": "305",
+          "url": "https://excellentnumbers.com/categories/Florida/305"
+        },
+        {
+          "code": "321",
+          "url": "https://excellentnumbers.com/categories/Florida/321"
+        },
+        {
+          "code": "324",
+          "url": "https://excellentnumbers.com/categories/Florida/324"
+        },
+        {
+          "code": "352",
+          "url": "https://excellentnumbers.com/categories/Florida/352"
+        },
+        {
+          "code": "386",
+          "url": "https://excellentnumbers.com/categories/Florida/386"
+        },
+        {
+          "code": "407",
+          "url": "https://excellentnumbers.com/categories/Florida/407"
+        },
+        {
+          "code": "448",
+          "url": "https://excellentnumbers.com/categories/Florida/448"
+        },
+        {
+          "code": "561",
+          "url": "https://excellentnumbers.com/categories/Florida/561"
+        },
+        {
+          "code": "645",
+          "url": "https://excellentnumbers.com/categories/Florida/645"
+        },
+        {
+          "code": "656",
+          "url": "https://excellentnumbers.com/categories/Florida/656"
+        },
+        {
+          "code": "689",
+          "url": "https://excellentnumbers.com/categories/Florida/689"
+        },
+        {
+          "code": "727",
+          "url": "https://excellentnumbers.com/categories/Florida/727"
+        },
+        {
+          "code": "728",
+          "url": "https://excellentnumbers.com/categories/Florida/728"
+        },
+        {
+          "code": "754",
+          "url": "https://excellentnumbers.com/categories/Florida/754"
+        },
+        {
+          "code": "772",
+          "url": "https://excellentnumbers.com/categories/Florida/772"
+        },
+        {
+          "code": "786",
+          "url": "https://excellentnumbers.com/categories/Florida/786"
+        },
+        {
+          "code": "813",
+          "url": "https://excellentnumbers.com/categories/Florida/813"
+        },
+        {
+          "code": "850",
+          "url": "https://excellentnumbers.com/categories/Florida/850"
+        },
+        {
+          "code": "863",
+          "url": "https://excellentnumbers.com/categories/Florida/863"
+        },
+        {
+          "code": "904",
+          "url": "https://excellentnumbers.com/categories/Florida/904"
+        },
+        {
+          "code": "941",
+          "url": "https://excellentnumbers.com/categories/Florida/941"
+        },
+        {
+          "code": "954",
+          "url": "https://excellentnumbers.com/categories/Florida/954"
+        }
+      ],
+      "total_area_codes": 23
+    },
+    "Georgia": {
+      "name": "Georgia",
+      "area_codes": [
+        {
+          "code": "229",
+          "url": "https://excellentnumbers.com/categories/Georgia/229"
+        },
+        {
+          "code": "404",
+          "url": "https://excellentnumbers.com/categories/Georgia/404"
+        },
+        {
+          "code": "470",
+          "url": "https://excellentnumbers.com/categories/Georgia/470"
+        },
+        {
+          "code": "478",
+          "url": "https://excellentnumbers.com/categories/Georgia/478"
+        },
+        {
+          "code": "678",
+          "url": "https://excellentnumbers.com/categories/Georgia/678"
+        },
+        {
+          "code": "706",
+          "url": "https://excellentnumbers.com/categories/Georgia/706"
+        },
+        {
+          "code": "762",
+          "url": "https://excellentnumbers.com/categories/Georgia/762"
+        },
+        {
+          "code": "770",
+          "url": "https://excellentnumbers.com/categories/Georgia/770"
+        },
+        {
+          "code": "912",
+          "url": "https://excellentnumbers.com/categories/Georgia/912"
+        },
+        {
+          "code": "943",
+          "url": "https://excellentnumbers.com/categories/Georgia/943"
+        }
+      ],
+      "total_area_codes": 10
+    },
+    "Hawaii": {
+      "name": "Hawaii",
+      "area_codes": [
+        {
+          "code": "808",
+          "url": "https://excellentnumbers.com/categories/Hawaii/808"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "Idaho": {
+      "name": "Idaho",
+      "area_codes": [
+        {
+          "code": "208",
+          "url": "https://excellentnumbers.com/categories/Idaho/208"
+        },
+        {
+          "code": "986",
+          "url": "https://excellentnumbers.com/categories/Idaho/986"
+        }
+      ],
+      "total_area_codes": 2
+    },
+    "Illinois": {
+      "name": "Illinois",
+      "area_codes": [
+        {
+          "code": "217",
+          "url": "https://excellentnumbers.com/categories/Illinois/217"
+        },
+        {
+          "code": "224",
+          "url": "https://excellentnumbers.com/categories/Illinois/224"
+        },
+        {
+          "code": "309",
+          "url": "https://excellentnumbers.com/categories/Illinois/309"
+        },
+        {
+          "code": "312",
+          "url": "https://excellentnumbers.com/categories/Illinois/312"
+        },
+        {
+          "code": "331",
+          "url": "https://excellentnumbers.com/categories/Illinois/331"
+        },
+        {
+          "code": "447",
+          "url": "https://excellentnumbers.com/categories/Illinois/447"
+        },
+        {
+          "code": "464",
+          "url": "https://excellentnumbers.com/categories/Illinois/464"
+        },
+        {
+          "code": "618",
+          "url": "https://excellentnumbers.com/categories/Illinois/618"
+        },
+        {
+          "code": "630",
+          "url": "https://excellentnumbers.com/categories/Illinois/630"
+        },
+        {
+          "code": "708",
+          "url": "https://excellentnumbers.com/categories/Illinois/708"
+        },
+        {
+          "code": "730",
+          "url": "https://excellentnumbers.com/categories/Illinois/730"
+        },
+        {
+          "code": "773",
+          "url": "https://excellentnumbers.com/categories/Illinois/773"
+        },
+        {
+          "code": "779",
+          "url": "https://excellentnumbers.com/categories/Illinois/779"
+        },
+        {
+          "code": "815",
+          "url": "https://excellentnumbers.com/categories/Illinois/815"
+        },
+        {
+          "code": "847",
+          "url": "https://excellentnumbers.com/categories/Illinois/847"
+        },
+        {
+          "code": "861",
+          "url": "https://excellentnumbers.com/categories/Illinois/861"
+        },
+        {
+          "code": "872",
+          "url": "https://excellentnumbers.com/categories/Illinois/872"
+        }
+      ],
+      "total_area_codes": 17
+    },
+    "Indiana": {
+      "name": "Indiana",
+      "area_codes": [
+        {
+          "code": "219",
+          "url": "https://excellentnumbers.com/categories/Indiana/219"
+        },
+        {
+          "code": "260",
+          "url": "https://excellentnumbers.com/categories/Indiana/260"
+        },
+        {
+          "code": "317",
+          "url": "https://excellentnumbers.com/categories/Indiana/317"
+        },
+        {
+          "code": "463",
+          "url": "https://excellentnumbers.com/categories/Indiana/463"
+        },
+        {
+          "code": "574",
+          "url": "https://excellentnumbers.com/categories/Indiana/574"
+        },
+        {
+          "code": "765",
+          "url": "https://excellentnumbers.com/categories/Indiana/765"
+        },
+        {
+          "code": "812",
+          "url": "https://excellentnumbers.com/categories/Indiana/812"
+        },
+        {
+          "code": "930",
+          "url": "https://excellentnumbers.com/categories/Indiana/930"
+        }
+      ],
+      "total_area_codes": 8
+    },
+    "Iowa": {
+      "name": "Iowa",
+      "area_codes": [
+        {
+          "code": "319",
+          "url": "https://excellentnumbers.com/categories/Iowa/319"
+        },
+        {
+          "code": "515",
+          "url": "https://excellentnumbers.com/categories/Iowa/515"
+        },
+        {
+          "code": "563",
+          "url": "https://excellentnumbers.com/categories/Iowa/563"
+        },
+        {
+          "code": "641",
+          "url": "https://excellentnumbers.com/categories/Iowa/641"
+        },
+        {
+          "code": "712",
+          "url": "https://excellentnumbers.com/categories/Iowa/712"
+        }
+      ],
+      "total_area_codes": 5
+    },
+    "Kansas": {
+      "name": "Kansas",
+      "area_codes": [
+        {
+          "code": "316",
+          "url": "https://excellentnumbers.com/categories/Kansas/316"
+        },
+        {
+          "code": "620",
+          "url": "https://excellentnumbers.com/categories/Kansas/620"
+        },
+        {
+          "code": "785",
+          "url": "https://excellentnumbers.com/categories/Kansas/785"
+        },
+        {
+          "code": "913",
+          "url": "https://excellentnumbers.com/categories/Kansas/913"
+        }
+      ],
+      "total_area_codes": 4
+    },
+    "Kentucky": {
+      "name": "Kentucky",
+      "area_codes": [
+        {
+          "code": "270",
+          "url": "https://excellentnumbers.com/categories/Kentucky/270"
+        },
+        {
+          "code": "364",
+          "url": "https://excellentnumbers.com/categories/Kentucky/364"
+        },
+        {
+          "code": "502",
+          "url": "https://excellentnumbers.com/categories/Kentucky/502"
+        },
+        {
+          "code": "606",
+          "url": "https://excellentnumbers.com/categories/Kentucky/606"
+        },
+        {
+          "code": "859",
+          "url": "https://excellentnumbers.com/categories/Kentucky/859"
+        }
+      ],
+      "total_area_codes": 5
+    },
+    "Louisiana": {
+      "name": "Louisiana",
+      "area_codes": [
+        {
+          "code": "225",
+          "url": "https://excellentnumbers.com/categories/Louisiana/225"
+        },
+        {
+          "code": "318",
+          "url": "https://excellentnumbers.com/categories/Louisiana/318"
+        },
+        {
+          "code": "337",
+          "url": "https://excellentnumbers.com/categories/Louisiana/337"
+        },
+        {
+          "code": "504",
+          "url": "https://excellentnumbers.com/categories/Louisiana/504"
+        },
+        {
+          "code": "985",
+          "url": "https://excellentnumbers.com/categories/Louisiana/985"
+        }
+      ],
+      "total_area_codes": 5
+    },
+    "Maine": {
+      "name": "Maine",
+      "area_codes": [
+        {
+          "code": "207",
+          "url": "https://excellentnumbers.com/categories/Maine/207"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "Manitoba": {
+      "name": "Manitoba",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Maryland": {
+      "name": "Maryland",
+      "area_codes": [
+        {
+          "code": "227",
+          "url": "https://excellentnumbers.com/categories/Maryland/227"
+        },
+        {
+          "code": "240",
+          "url": "https://excellentnumbers.com/categories/Maryland/240"
+        },
+        {
+          "code": "301",
+          "url": "https://excellentnumbers.com/categories/Maryland/301"
+        },
+        {
+          "code": "410",
+          "url": "https://excellentnumbers.com/categories/Maryland/410"
+        },
+        {
+          "code": "443",
+          "url": "https://excellentnumbers.com/categories/Maryland/443"
+        },
+        {
+          "code": "667",
+          "url": "https://excellentnumbers.com/categories/Maryland/667"
+        }
+      ],
+      "total_area_codes": 6
+    },
+    "Massachusetts": {
+      "name": "Massachusetts",
+      "area_codes": [
+        {
+          "code": "339",
+          "url": "https://excellentnumbers.com/categories/Massachusetts/339"
+        },
+        {
+          "code": "351",
+          "url": "https://excellentnumbers.com/categories/Massachusetts/351"
+        },
+        {
+          "code": "413",
+          "url": "https://excellentnumbers.com/categories/Massachusetts/413"
+        },
+        {
+          "code": "508",
+          "url": "https://excellentnumbers.com/categories/Massachusetts/508"
+        },
+        {
+          "code": "617",
+          "url": "https://excellentnumbers.com/categories/Massachusetts/617"
+        },
+        {
+          "code": "774",
+          "url": "https://excellentnumbers.com/categories/Massachusetts/774"
+        },
+        {
+          "code": "781",
+          "url": "https://excellentnumbers.com/categories/Massachusetts/781"
+        },
+        {
+          "code": "857",
+          "url": "https://excellentnumbers.com/categories/Massachusetts/857"
+        },
+        {
+          "code": "978",
+          "url": "https://excellentnumbers.com/categories/Massachusetts/978"
+        }
+      ],
+      "total_area_codes": 9
+    },
+    "Michigan": {
+      "name": "Michigan",
+      "area_codes": [
+        {
+          "code": "231",
+          "url": "https://excellentnumbers.com/categories/Michigan/231"
+        },
+        {
+          "code": "248",
+          "url": "https://excellentnumbers.com/categories/Michigan/248"
+        },
+        {
+          "code": "269",
+          "url": "https://excellentnumbers.com/categories/Michigan/269"
+        },
+        {
+          "code": "313",
+          "url": "https://excellentnumbers.com/categories/Michigan/313"
+        },
+        {
+          "code": "517",
+          "url": "https://excellentnumbers.com/categories/Michigan/517"
+        },
+        {
+          "code": "586",
+          "url": "https://excellentnumbers.com/categories/Michigan/586"
+        },
+        {
+          "code": "616",
+          "url": "https://excellentnumbers.com/categories/Michigan/616"
+        },
+        {
+          "code": "734",
+          "url": "https://excellentnumbers.com/categories/Michigan/734"
+        },
+        {
+          "code": "810",
+          "url": "https://excellentnumbers.com/categories/Michigan/810"
+        },
+        {
+          "code": "906",
+          "url": "https://excellentnumbers.com/categories/Michigan/906"
+        },
+        {
+          "code": "947",
+          "url": "https://excellentnumbers.com/categories/Michigan/947"
+        },
+        {
+          "code": "989",
+          "url": "https://excellentnumbers.com/categories/Michigan/989"
+        }
+      ],
+      "total_area_codes": 12
+    },
+    "Minnesota": {
+      "name": "Minnesota",
+      "area_codes": [
+        {
+          "code": "218",
+          "url": "https://excellentnumbers.com/categories/Minnesota/218"
+        },
+        {
+          "code": "320",
+          "url": "https://excellentnumbers.com/categories/Minnesota/320"
+        },
+        {
+          "code": "507",
+          "url": "https://excellentnumbers.com/categories/Minnesota/507"
+        },
+        {
+          "code": "612",
+          "url": "https://excellentnumbers.com/categories/Minnesota/612"
+        },
+        {
+          "code": "651",
+          "url": "https://excellentnumbers.com/categories/Minnesota/651"
+        },
+        {
+          "code": "763",
+          "url": "https://excellentnumbers.com/categories/Minnesota/763"
+        },
+        {
+          "code": "952",
+          "url": "https://excellentnumbers.com/categories/Minnesota/952"
+        }
+      ],
+      "total_area_codes": 7
+    },
+    "Mississippi": {
+      "name": "Mississippi",
+      "area_codes": [
+        {
+          "code": "228",
+          "url": "https://excellentnumbers.com/categories/Mississippi/228"
+        },
+        {
+          "code": "601",
+          "url": "https://excellentnumbers.com/categories/Mississippi/601"
+        },
+        {
+          "code": "662",
+          "url": "https://excellentnumbers.com/categories/Mississippi/662"
+        },
+        {
+          "code": "769",
+          "url": "https://excellentnumbers.com/categories/Mississippi/769"
+        }
+      ],
+      "total_area_codes": 4
+    },
+    "Missouri": {
+      "name": "Missouri",
+      "area_codes": [
+        {
+          "code": "235",
+          "url": "https://excellentnumbers.com/categories/Missouri/235"
+        },
+        {
+          "code": "314",
+          "url": "https://excellentnumbers.com/categories/Missouri/314"
+        },
+        {
+          "code": "417",
+          "url": "https://excellentnumbers.com/categories/Missouri/417"
+        },
+        {
+          "code": "557",
+          "url": "https://excellentnumbers.com/categories/Missouri/557"
+        },
+        {
+          "code": "573",
+          "url": "https://excellentnumbers.com/categories/Missouri/573"
+        },
+        {
+          "code": "636",
+          "url": "https://excellentnumbers.com/categories/Missouri/636"
+        },
+        {
+          "code": "660",
+          "url": "https://excellentnumbers.com/categories/Missouri/660"
+        },
+        {
+          "code": "816",
+          "url": "https://excellentnumbers.com/categories/Missouri/816"
+        }
+      ],
+      "total_area_codes": 8
+    },
+    "Montana": {
+      "name": "Montana",
+      "area_codes": [
+        {
+          "code": "406",
+          "url": "https://excellentnumbers.com/categories/Montana/406"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "Nebraska": {
+      "name": "Nebraska",
+      "area_codes": [
+        {
+          "code": "308",
+          "url": "https://excellentnumbers.com/categories/Nebraska/308"
+        },
+        {
+          "code": "402",
+          "url": "https://excellentnumbers.com/categories/Nebraska/402"
+        },
+        {
+          "code": "531",
+          "url": "https://excellentnumbers.com/categories/Nebraska/531"
+        }
+      ],
+      "total_area_codes": 3
+    },
+    "Nevada": {
+      "name": "Nevada",
+      "area_codes": [
+        {
+          "code": "702",
+          "url": "https://excellentnumbers.com/categories/Nevada/702"
+        },
+        {
+          "code": "725",
+          "url": "https://excellentnumbers.com/categories/Nevada/725"
+        },
+        {
+          "code": "775",
+          "url": "https://excellentnumbers.com/categories/Nevada/775"
+        }
+      ],
+      "total_area_codes": 3
+    },
+    "New Brunswick": {
+      "name": "New Brunswick",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "New Hampshire": {
+      "name": "New Hampshire",
+      "area_codes": [
+        {
+          "code": "603",
+          "url": "https://excellentnumbers.com/categories/New Hampshire/603"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "New Jersey": {
+      "name": "New Jersey",
+      "area_codes": [
+        {
+          "code": "201",
+          "url": "https://excellentnumbers.com/categories/New Jersey/201"
+        },
+        {
+          "code": "551",
+          "url": "https://excellentnumbers.com/categories/New Jersey/551"
+        },
+        {
+          "code": "609",
+          "url": "https://excellentnumbers.com/categories/New Jersey/609"
+        },
+        {
+          "code": "640",
+          "url": "https://excellentnumbers.com/categories/New Jersey/640"
+        },
+        {
+          "code": "732",
+          "url": "https://excellentnumbers.com/categories/New Jersey/732"
+        },
+        {
+          "code": "848",
+          "url": "https://excellentnumbers.com/categories/New Jersey/848"
+        },
+        {
+          "code": "856",
+          "url": "https://excellentnumbers.com/categories/New Jersey/856"
+        },
+        {
+          "code": "862",
+          "url": "https://excellentnumbers.com/categories/New Jersey/862"
+        },
+        {
+          "code": "908",
+          "url": "https://excellentnumbers.com/categories/New Jersey/908"
+        },
+        {
+          "code": "973",
+          "url": "https://excellentnumbers.com/categories/New Jersey/973"
+        }
+      ],
+      "total_area_codes": 10
+    },
+    "New Mexico": {
+      "name": "New Mexico",
+      "area_codes": [
+        {
+          "code": "505",
+          "url": "https://excellentnumbers.com/categories/New Mexico/505"
+        },
+        {
+          "code": "575",
+          "url": "https://excellentnumbers.com/categories/New Mexico/575"
+        }
+      ],
+      "total_area_codes": 2
+    },
+    "New York": {
+      "name": "New York",
+      "area_codes": [
+        {
+          "code": "212",
+          "url": "https://excellentnumbers.com/categories/New York/212"
+        },
+        {
+          "code": "315",
+          "url": "https://excellentnumbers.com/categories/New York/315"
+        },
+        {
+          "code": "329",
+          "url": "https://excellentnumbers.com/categories/New York/329"
+        },
+        {
+          "code": "332",
+          "url": "https://excellentnumbers.com/categories/New York/332"
+        },
+        {
+          "code": "347",
+          "url": "https://excellentnumbers.com/categories/New York/347"
+        },
+        {
+          "code": "363",
+          "url": "https://excellentnumbers.com/categories/New York/363"
+        },
+        {
+          "code": "516",
+          "url": "https://excellentnumbers.com/categories/New York/516"
+        },
+        {
+          "code": "518",
+          "url": "https://excellentnumbers.com/categories/New York/518"
+        },
+        {
+          "code": "585",
+          "url": "https://excellentnumbers.com/categories/New York/585"
+        },
+        {
+          "code": "607",
+          "url": "https://excellentnumbers.com/categories/New York/607"
+        },
+        {
+          "code": "631",
+          "url": "https://excellentnumbers.com/categories/New York/631"
+        },
+        {
+          "code": "646",
+          "url": "https://excellentnumbers.com/categories/New York/646"
+        },
+        {
+          "code": "680",
+          "url": "https://excellentnumbers.com/categories/New York/680"
+        },
+        {
+          "code": "716",
+          "url": "https://excellentnumbers.com/categories/New York/716"
+        },
+        {
+          "code": "718",
+          "url": "https://excellentnumbers.com/categories/New York/718"
+        },
+        {
+          "code": "838",
+          "url": "https://excellentnumbers.com/categories/New York/838"
+        },
+        {
+          "code": "845",
+          "url": "https://excellentnumbers.com/categories/New York/845"
+        },
+        {
+          "code": "914",
+          "url": "https://excellentnumbers.com/categories/New York/914"
+        },
+        {
+          "code": "917",
+          "url": "https://excellentnumbers.com/categories/New York/917"
+        },
+        {
+          "code": "929",
+          "url": "https://excellentnumbers.com/categories/New York/929"
+        },
+        {
+          "code": "934",
+          "url": "https://excellentnumbers.com/categories/New York/934"
+        }
+      ],
+      "total_area_codes": 21
+    },
+    "New jersey": {
+      "name": "New jersey",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Newfoundland and Labrador": {
+      "name": "Newfoundland and Labrador",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "North Carolina": {
+      "name": "North Carolina",
+      "area_codes": [
+        {
+          "code": "252",
+          "url": "https://excellentnumbers.com/categories/North Carolina/252"
+        },
+        {
+          "code": "336",
+          "url": "https://excellentnumbers.com/categories/North Carolina/336"
+        },
+        {
+          "code": "472",
+          "url": "https://excellentnumbers.com/categories/North Carolina/472"
+        },
+        {
+          "code": "704",
+          "url": "https://excellentnumbers.com/categories/North Carolina/704"
+        },
+        {
+          "code": "743",
+          "url": "https://excellentnumbers.com/categories/North Carolina/743"
+        },
+        {
+          "code": "828",
+          "url": "https://excellentnumbers.com/categories/North Carolina/828"
+        },
+        {
+          "code": "910",
+          "url": "https://excellentnumbers.com/categories/North Carolina/910"
+        },
+        {
+          "code": "919",
+          "url": "https://excellentnumbers.com/categories/North Carolina/919"
+        },
+        {
+          "code": "980",
+          "url": "https://excellentnumbers.com/categories/North Carolina/980"
+        },
+        {
+          "code": "984",
+          "url": "https://excellentnumbers.com/categories/North Carolina/984"
+        }
+      ],
+      "total_area_codes": 10
+    },
+    "North Dakota": {
+      "name": "North Dakota",
+      "area_codes": [
+        {
+          "code": "701",
+          "url": "https://excellentnumbers.com/categories/North Dakota/701"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "North carolina": {
+      "name": "North carolina",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Northwest Territories": {
+      "name": "Northwest Territories",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Nova Scotia": {
+      "name": "Nova Scotia",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Nunavut": {
+      "name": "Nunavut",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Ohio": {
+      "name": "Ohio",
+      "area_codes": [
+        {
+          "code": "216",
+          "url": "https://excellentnumbers.com/categories/Ohio/216"
+        },
+        {
+          "code": "220",
+          "url": "https://excellentnumbers.com/categories/Ohio/220"
+        },
+        {
+          "code": "234",
+          "url": "https://excellentnumbers.com/categories/Ohio/234"
+        },
+        {
+          "code": "283",
+          "url": "https://excellentnumbers.com/categories/Ohio/283"
+        },
+        {
+          "code": "326",
+          "url": "https://excellentnumbers.com/categories/Ohio/326"
+        },
+        {
+          "code": "330",
+          "url": "https://excellentnumbers.com/categories/Ohio/330"
+        },
+        {
+          "code": "380",
+          "url": "https://excellentnumbers.com/categories/Ohio/380"
+        },
+        {
+          "code": "419",
+          "url": "https://excellentnumbers.com/categories/Ohio/419"
+        },
+        {
+          "code": "440",
+          "url": "https://excellentnumbers.com/categories/Ohio/440"
+        },
+        {
+          "code": "513",
+          "url": "https://excellentnumbers.com/categories/Ohio/513"
+        },
+        {
+          "code": "567",
+          "url": "https://excellentnumbers.com/categories/Ohio/567"
+        },
+        {
+          "code": "614",
+          "url": "https://excellentnumbers.com/categories/Ohio/614"
+        },
+        {
+          "code": "740",
+          "url": "https://excellentnumbers.com/categories/Ohio/740"
+        },
+        {
+          "code": "937",
+          "url": "https://excellentnumbers.com/categories/Ohio/937"
+        }
+      ],
+      "total_area_codes": 14
+    },
+    "Oklahoma": {
+      "name": "Oklahoma",
+      "area_codes": [
+        {
+          "code": "405",
+          "url": "https://excellentnumbers.com/categories/Oklahoma/405"
+        },
+        {
+          "code": "539",
+          "url": "https://excellentnumbers.com/categories/Oklahoma/539"
+        },
+        {
+          "code": "572",
+          "url": "https://excellentnumbers.com/categories/Oklahoma/572"
+        },
+        {
+          "code": "580",
+          "url": "https://excellentnumbers.com/categories/Oklahoma/580"
+        },
+        {
+          "code": "918",
+          "url": "https://excellentnumbers.com/categories/Oklahoma/918"
+        }
+      ],
+      "total_area_codes": 5
+    },
+    "Ontario": {
+      "name": "Ontario",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Oregon": {
+      "name": "Oregon",
+      "area_codes": [
+        {
+          "code": "458",
+          "url": "https://excellentnumbers.com/categories/Oregon/458"
+        },
+        {
+          "code": "503",
+          "url": "https://excellentnumbers.com/categories/Oregon/503"
+        },
+        {
+          "code": "541",
+          "url": "https://excellentnumbers.com/categories/Oregon/541"
+        },
+        {
+          "code": "971",
+          "url": "https://excellentnumbers.com/categories/Oregon/971"
+        }
+      ],
+      "total_area_codes": 4
+    },
+    "Pennsylvania": {
+      "name": "Pennsylvania",
+      "area_codes": [
+        {
+          "code": "215",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/215"
+        },
+        {
+          "code": "223",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/223"
+        },
+        {
+          "code": "267",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/267"
+        },
+        {
+          "code": "272",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/272"
+        },
+        {
+          "code": "412",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/412"
+        },
+        {
+          "code": "445",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/445"
+        },
+        {
+          "code": "484",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/484"
+        },
+        {
+          "code": "570",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/570"
+        },
+        {
+          "code": "582",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/582"
+        },
+        {
+          "code": "610",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/610"
+        },
+        {
+          "code": "717",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/717"
+        },
+        {
+          "code": "724",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/724"
+        },
+        {
+          "code": "814",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/814"
+        },
+        {
+          "code": "835",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/835"
+        },
+        {
+          "code": "878",
+          "url": "https://excellentnumbers.com/categories/Pennsylvania/878"
+        }
+      ],
+      "total_area_codes": 15
+    },
+    "Prince Edward Island": {
+      "name": "Prince Edward Island",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Puerto Rico": {
+      "name": "Puerto Rico",
+      "area_codes": [
+        {
+          "code": "787",
+          "url": "https://excellentnumbers.com/categories/Puerto Rico/787"
+        },
+        {
+          "code": "939",
+          "url": "https://excellentnumbers.com/categories/Puerto Rico/939"
+        }
+      ],
+      "total_area_codes": 2
+    },
+    "Quebec": {
+      "name": "Quebec",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Rhode Island": {
+      "name": "Rhode Island",
+      "area_codes": [
+        {
+          "code": "401",
+          "url": "https://excellentnumbers.com/categories/Rhode Island/401"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "Saskatchewan": {
+      "name": "Saskatchewan",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "South Carolina": {
+      "name": "South Carolina",
+      "area_codes": [
+        {
+          "code": "803",
+          "url": "https://excellentnumbers.com/categories/South Carolina/803"
+        },
+        {
+          "code": "821",
+          "url": "https://excellentnumbers.com/categories/South Carolina/821"
+        },
+        {
+          "code": "839",
+          "url": "https://excellentnumbers.com/categories/South Carolina/839"
+        },
+        {
+          "code": "843",
+          "url": "https://excellentnumbers.com/categories/South Carolina/843"
+        },
+        {
+          "code": "854",
+          "url": "https://excellentnumbers.com/categories/South Carolina/854"
+        },
+        {
+          "code": "864",
+          "url": "https://excellentnumbers.com/categories/South Carolina/864"
+        }
+      ],
+      "total_area_codes": 6
+    },
+    "South Dakota": {
+      "name": "South Dakota",
+      "area_codes": [
+        {
+          "code": "605",
+          "url": "https://excellentnumbers.com/categories/South Dakota/605"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "Tennessee": {
+      "name": "Tennessee",
+      "area_codes": [
+        {
+          "code": "423",
+          "url": "https://excellentnumbers.com/categories/Tennessee/423"
+        },
+        {
+          "code": "615",
+          "url": "https://excellentnumbers.com/categories/Tennessee/615"
+        },
+        {
+          "code": "629",
+          "url": "https://excellentnumbers.com/categories/Tennessee/629"
+        },
+        {
+          "code": "731",
+          "url": "https://excellentnumbers.com/categories/Tennessee/731"
+        },
+        {
+          "code": "865",
+          "url": "https://excellentnumbers.com/categories/Tennessee/865"
+        },
+        {
+          "code": "901",
+          "url": "https://excellentnumbers.com/categories/Tennessee/901"
+        },
+        {
+          "code": "931",
+          "url": "https://excellentnumbers.com/categories/Tennessee/931"
+        }
+      ],
+      "total_area_codes": 7
+    },
+    "Texas": {
+      "name": "Texas",
+      "area_codes": [
+        {
+          "code": "210",
+          "url": "https://excellentnumbers.com/categories/Texas/210"
+        },
+        {
+          "code": "214",
+          "url": "https://excellentnumbers.com/categories/Texas/214"
+        },
+        {
+          "code": "254",
+          "url": "https://excellentnumbers.com/categories/Texas/254"
+        },
+        {
+          "code": "281",
+          "url": "https://excellentnumbers.com/categories/Texas/281"
+        },
+        {
+          "code": "325",
+          "url": "https://excellentnumbers.com/categories/Texas/325"
+        },
+        {
+          "code": "346",
+          "url": "https://excellentnumbers.com/categories/Texas/346"
+        },
+        {
+          "code": "361",
+          "url": "https://excellentnumbers.com/categories/Texas/361"
+        },
+        {
+          "code": "409",
+          "url": "https://excellentnumbers.com/categories/Texas/409"
+        },
+        {
+          "code": "430",
+          "url": "https://excellentnumbers.com/categories/Texas/430"
+        },
+        {
+          "code": "432",
+          "url": "https://excellentnumbers.com/categories/Texas/432"
+        },
+        {
+          "code": "469",
+          "url": "https://excellentnumbers.com/categories/Texas/469"
+        },
+        {
+          "code": "512",
+          "url": "https://excellentnumbers.com/categories/Texas/512"
+        },
+        {
+          "code": "682",
+          "url": "https://excellentnumbers.com/categories/Texas/682"
+        },
+        {
+          "code": "713",
+          "url": "https://excellentnumbers.com/categories/Texas/713"
+        },
+        {
+          "code": "726",
+          "url": "https://excellentnumbers.com/categories/Texas/726"
+        },
+        {
+          "code": "737",
+          "url": "https://excellentnumbers.com/categories/Texas/737"
+        },
+        {
+          "code": "806",
+          "url": "https://excellentnumbers.com/categories/Texas/806"
+        },
+        {
+          "code": "817",
+          "url": "https://excellentnumbers.com/categories/Texas/817"
+        },
+        {
+          "code": "830",
+          "url": "https://excellentnumbers.com/categories/Texas/830"
+        },
+        {
+          "code": "832",
+          "url": "https://excellentnumbers.com/categories/Texas/832"
+        },
+        {
+          "code": "903",
+          "url": "https://excellentnumbers.com/categories/Texas/903"
+        },
+        {
+          "code": "915",
+          "url": "https://excellentnumbers.com/categories/Texas/915"
+        },
+        {
+          "code": "936",
+          "url": "https://excellentnumbers.com/categories/Texas/936"
+        },
+        {
+          "code": "940",
+          "url": "https://excellentnumbers.com/categories/Texas/940"
+        },
+        {
+          "code": "945",
+          "url": "https://excellentnumbers.com/categories/Texas/945"
+        },
+        {
+          "code": "956",
+          "url": "https://excellentnumbers.com/categories/Texas/956"
+        },
+        {
+          "code": "972",
+          "url": "https://excellentnumbers.com/categories/Texas/972"
+        },
+        {
+          "code": "979",
+          "url": "https://excellentnumbers.com/categories/Texas/979"
+        }
+      ],
+      "total_area_codes": 28
+    },
+    "Toll Free": {
+      "name": "Toll Free",
+      "area_codes": [],
+      "total_area_codes": 0
+    },
+    "Utah": {
+      "name": "Utah",
+      "area_codes": [
+        {
+          "code": "385",
+          "url": "https://excellentnumbers.com/categories/Utah/385"
+        },
+        {
+          "code": "435",
+          "url": "https://excellentnumbers.com/categories/Utah/435"
+        },
+        {
+          "code": "801",
+          "url": "https://excellentnumbers.com/categories/Utah/801"
+        }
+      ],
+      "total_area_codes": 3
+    },
+    "Vermont": {
+      "name": "Vermont",
+      "area_codes": [
+        {
+          "code": "802",
+          "url": "https://excellentnumbers.com/categories/Vermont/802"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "Virginia": {
+      "name": "Virginia",
+      "area_codes": [
+        {
+          "code": "276",
+          "url": "https://excellentnumbers.com/categories/Virginia/276"
+        },
+        {
+          "code": "434",
+          "url": "https://excellentnumbers.com/categories/Virginia/434"
+        },
+        {
+          "code": "540",
+          "url": "https://excellentnumbers.com/categories/Virginia/540"
+        },
+        {
+          "code": "571",
+          "url": "https://excellentnumbers.com/categories/Virginia/571"
+        },
+        {
+          "code": "703",
+          "url": "https://excellentnumbers.com/categories/Virginia/703"
+        },
+        {
+          "code": "757",
+          "url": "https://excellentnumbers.com/categories/Virginia/757"
+        },
+        {
+          "code": "804",
+          "url": "https://excellentnumbers.com/categories/Virginia/804"
+        },
+        {
+          "code": "826",
+          "url": "https://excellentnumbers.com/categories/Virginia/826"
+        },
+        {
+          "code": "948",
+          "url": "https://excellentnumbers.com/categories/Virginia/948"
+        }
+      ],
+      "total_area_codes": 9
+    },
+    "Washington": {
+      "name": "Washington",
+      "area_codes": [
+        {
+          "code": "206",
+          "url": "https://excellentnumbers.com/categories/Washington/206"
+        },
+        {
+          "code": "253",
+          "url": "https://excellentnumbers.com/categories/Washington/253"
+        },
+        {
+          "code": "360",
+          "url": "https://excellentnumbers.com/categories/Washington/360"
+        },
+        {
+          "code": "425",
+          "url": "https://excellentnumbers.com/categories/Washington/425"
+        },
+        {
+          "code": "509",
+          "url": "https://excellentnumbers.com/categories/Washington/509"
+        },
+        {
+          "code": "564",
+          "url": "https://excellentnumbers.com/categories/Washington/564"
+        }
+      ],
+      "total_area_codes": 6
+    },
+    "West Virginia": {
+      "name": "West Virginia",
+      "area_codes": [
+        {
+          "code": "304",
+          "url": "https://excellentnumbers.com/categories/West Virginia/304"
+        },
+        {
+          "code": "681",
+          "url": "https://excellentnumbers.com/categories/West Virginia/681"
+        }
+      ],
+      "total_area_codes": 2
+    },
+    "Wisconsin": {
+      "name": "Wisconsin",
+      "area_codes": [
+        {
+          "code": "262",
+          "url": "https://excellentnumbers.com/categories/Wisconsin/262"
+        },
+        {
+          "code": "274",
+          "url": "https://excellentnumbers.com/categories/Wisconsin/274"
+        },
+        {
+          "code": "414",
+          "url": "https://excellentnumbers.com/categories/Wisconsin/414"
+        },
+        {
+          "code": "534",
+          "url": "https://excellentnumbers.com/categories/Wisconsin/534"
+        },
+        {
+          "code": "608",
+          "url": "https://excellentnumbers.com/categories/Wisconsin/608"
+        },
+        {
+          "code": "715",
+          "url": "https://excellentnumbers.com/categories/Wisconsin/715"
+        },
+        {
+          "code": "920",
+          "url": "https://excellentnumbers.com/categories/Wisconsin/920"
+        }
+      ],
+      "total_area_codes": 7
+    },
+    "Wyoming": {
+      "name": "Wyoming",
+      "area_codes": [
+        {
+          "code": "307",
+          "url": "https://excellentnumbers.com/categories/Wyoming/307"
+        }
+      ],
+      "total_area_codes": 1
+    },
+    "Yukon": {
+      "name": "Yukon",
+      "area_codes": [],
+      "total_area_codes": 0
+    }
+  },
+  "area_codes": {
+    "907": {
+      "code": "907",
+      "region": "Alaska",
+      "url": "https://excellentnumbers.com/categories/Alaska/907"
+    },
+    "205": {
+      "code": "205",
+      "region": "Alabama",
+      "url": "https://excellentnumbers.com/categories/Alabama/205"
+    },
+    "251": {
+      "code": "251",
+      "region": "Alabama",
+      "url": "https://excellentnumbers.com/categories/Alabama/251"
+    },
+    "256": {
+      "code": "256",
+      "region": "Alabama",
+      "url": "https://excellentnumbers.com/categories/Alabama/256"
+    },
+    "334": {
+      "code": "334",
+      "region": "Alabama",
+      "url": "https://excellentnumbers.com/categories/Alabama/334"
+    },
+    "659": {
+      "code": "659",
+      "region": "Alabama",
+      "url": "https://excellentnumbers.com/categories/Alabama/659"
+    },
+    "938": {
+      "code": "938",
+      "region": "Alabama",
+      "url": "https://excellentnumbers.com/categories/Alabama/938"
+    },
+    "480": {
+      "code": "480",
+      "region": "Arizona",
+      "url": "https://excellentnumbers.com/categories/Arizona/480"
+    },
+    "520": {
+      "code": "520",
+      "region": "Arizona",
+      "url": "https://excellentnumbers.com/categories/Arizona/520"
+    },
+    "602": {
+      "code": "602",
+      "region": "Arizona",
+      "url": "https://excellentnumbers.com/categories/Arizona/602"
+    },
+    "623": {
+      "code": "623",
+      "region": "Arizona",
+      "url": "https://excellentnumbers.com/categories/Arizona/623"
+    },
+    "928": {
+      "code": "928",
+      "region": "Arizona",
+      "url": "https://excellentnumbers.com/categories/Arizona/928"
+    },
+    "327": {
+      "code": "327",
+      "region": "Arkansas",
+      "url": "https://excellentnumbers.com/categories/Arkansas/327"
+    },
+    "479": {
+      "code": "479",
+      "region": "Arkansas",
+      "url": "https://excellentnumbers.com/categories/Arkansas/479"
+    },
+    "501": {
+      "code": "501",
+      "region": "Arkansas",
+      "url": "https://excellentnumbers.com/categories/Arkansas/501"
+    },
+    "870": {
+      "code": "870",
+      "region": "Arkansas",
+      "url": "https://excellentnumbers.com/categories/Arkansas/870"
+    },
+    "209": {
+      "code": "209",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/209"
+    },
+    "213": {
+      "code": "213",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/213"
+    },
+    "279": {
+      "code": "279",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/279"
+    },
+    "310": {
+      "code": "310",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/310"
+    },
+    "323": {
+      "code": "323",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/323"
+    },
+    "341": {
+      "code": "341",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/341"
+    },
+    "350": {
+      "code": "350",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/350"
+    },
+    "369": {
+      "code": "369",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/369"
+    },
+    "408": {
+      "code": "408",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/408"
+    },
+    "415": {
+      "code": "415",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/415"
+    },
+    "424": {
+      "code": "424",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/424"
+    },
+    "442": {
+      "code": "442",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/442"
+    },
+    "510": {
+      "code": "510",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/510"
+    },
+    "530": {
+      "code": "530",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/530"
+    },
+    "559": {
+      "code": "559",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/559"
+    },
+    "562": {
+      "code": "562",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/562"
+    },
+    "619": {
+      "code": "619",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/619"
+    },
+    "626": {
+      "code": "626",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/626"
+    },
+    "628": {
+      "code": "628",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/628"
+    },
+    "650": {
+      "code": "650",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/650"
+    },
+    "657": {
+      "code": "657",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/657"
+    },
+    "661": {
+      "code": "661",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/661"
+    },
+    "669": {
+      "code": "669",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/669"
+    },
+    "707": {
+      "code": "707",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/707"
+    },
+    "714": {
+      "code": "714",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/714"
+    },
+    "747": {
+      "code": "747",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/747"
+    },
+    "760": {
+      "code": "760",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/760"
+    },
+    "805": {
+      "code": "805",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/805"
+    },
+    "818": {
+      "code": "818",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/818"
+    },
+    "820": {
+      "code": "820",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/820"
+    },
+    "831": {
+      "code": "831",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/831"
+    },
+    "840": {
+      "code": "840",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/840"
+    },
+    "858": {
+      "code": "858",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/858"
+    },
+    "909": {
+      "code": "909",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/909"
+    },
+    "916": {
+      "code": "916",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/916"
+    },
+    "925": {
+      "code": "925",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/925"
+    },
+    "949": {
+      "code": "949",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/949"
+    },
+    "951": {
+      "code": "951",
+      "region": "California",
+      "url": "https://excellentnumbers.com/categories/California/951"
+    },
+    "303": {
+      "code": "303",
+      "region": "Colorado",
+      "url": "https://excellentnumbers.com/categories/Colorado/303"
+    },
+    "719": {
+      "code": "719",
+      "region": "Colorado",
+      "url": "https://excellentnumbers.com/categories/Colorado/719"
+    },
+    "720": {
+      "code": "720",
+      "region": "Colorado",
+      "url": "https://excellentnumbers.com/categories/Colorado/720"
+    },
+    "970": {
+      "code": "970",
+      "region": "Colorado",
+      "url": "https://excellentnumbers.com/categories/Colorado/970"
+    },
+    "983": {
+      "code": "983",
+      "region": "Colorado",
+      "url": "https://excellentnumbers.com/categories/Colorado/983"
+    },
+    "203": {
+      "code": "203",
+      "region": "Connecticut",
+      "url": "https://excellentnumbers.com/categories/Connecticut/203"
+    },
+    "475": {
+      "code": "475",
+      "region": "Connecticut",
+      "url": "https://excellentnumbers.com/categories/Connecticut/475"
+    },
+    "860": {
+      "code": "860",
+      "region": "Connecticut",
+      "url": "https://excellentnumbers.com/categories/Connecticut/860"
+    },
+    "959": {
+      "code": "959",
+      "region": "Connecticut",
+      "url": "https://excellentnumbers.com/categories/Connecticut/959"
+    },
+    "302": {
+      "code": "302",
+      "region": "Delaware",
+      "url": "https://excellentnumbers.com/categories/Delaware/302"
+    },
+    "202": {
+      "code": "202",
+      "region": "District of Columbia",
+      "url": "https://excellentnumbers.com/categories/District of Columbia/202"
+    },
+    "771": {
+      "code": "771",
+      "region": "District of Columbia",
+      "url": "https://excellentnumbers.com/categories/District of Columbia/771"
+    },
+    "239": {
+      "code": "239",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/239"
+    },
+    "305": {
+      "code": "305",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/305"
+    },
+    "321": {
+      "code": "321",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/321"
+    },
+    "324": {
+      "code": "324",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/324"
+    },
+    "352": {
+      "code": "352",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/352"
+    },
+    "386": {
+      "code": "386",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/386"
+    },
+    "407": {
+      "code": "407",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/407"
+    },
+    "448": {
+      "code": "448",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/448"
+    },
+    "561": {
+      "code": "561",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/561"
+    },
+    "645": {
+      "code": "645",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/645"
+    },
+    "656": {
+      "code": "656",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/656"
+    },
+    "689": {
+      "code": "689",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/689"
+    },
+    "727": {
+      "code": "727",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/727"
+    },
+    "728": {
+      "code": "728",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/728"
+    },
+    "754": {
+      "code": "754",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/754"
+    },
+    "772": {
+      "code": "772",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/772"
+    },
+    "786": {
+      "code": "786",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/786"
+    },
+    "813": {
+      "code": "813",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/813"
+    },
+    "850": {
+      "code": "850",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/850"
+    },
+    "863": {
+      "code": "863",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/863"
+    },
+    "904": {
+      "code": "904",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/904"
+    },
+    "941": {
+      "code": "941",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/941"
+    },
+    "954": {
+      "code": "954",
+      "region": "Florida",
+      "url": "https://excellentnumbers.com/categories/Florida/954"
+    },
+    "229": {
+      "code": "229",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/229"
+    },
+    "404": {
+      "code": "404",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/404"
+    },
+    "470": {
+      "code": "470",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/470"
+    },
+    "478": {
+      "code": "478",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/478"
+    },
+    "678": {
+      "code": "678",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/678"
+    },
+    "706": {
+      "code": "706",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/706"
+    },
+    "762": {
+      "code": "762",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/762"
+    },
+    "770": {
+      "code": "770",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/770"
+    },
+    "912": {
+      "code": "912",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/912"
+    },
+    "943": {
+      "code": "943",
+      "region": "Georgia",
+      "url": "https://excellentnumbers.com/categories/Georgia/943"
+    },
+    "808": {
+      "code": "808",
+      "region": "Hawaii",
+      "url": "https://excellentnumbers.com/categories/Hawaii/808"
+    },
+    "208": {
+      "code": "208",
+      "region": "Idaho",
+      "url": "https://excellentnumbers.com/categories/Idaho/208"
+    },
+    "986": {
+      "code": "986",
+      "region": "Idaho",
+      "url": "https://excellentnumbers.com/categories/Idaho/986"
+    },
+    "217": {
+      "code": "217",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/217"
+    },
+    "224": {
+      "code": "224",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/224"
+    },
+    "309": {
+      "code": "309",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/309"
+    },
+    "312": {
+      "code": "312",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/312"
+    },
+    "331": {
+      "code": "331",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/331"
+    },
+    "447": {
+      "code": "447",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/447"
+    },
+    "618": {
+      "code": "618",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/618"
+    },
+    "630": {
+      "code": "630",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/630"
+    },
+    "708": {
+      "code": "708",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/708"
+    },
+    "730": {
+      "code": "730",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/730"
+    },
+    "773": {
+      "code": "773",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/773"
+    },
+    "779": {
+      "code": "779",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/779"
+    },
+    "815": {
+      "code": "815",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/815"
+    },
+    "847": {
+      "code": "847",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/847"
+    },
+    "861": {
+      "code": "861",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/861"
+    },
+    "872": {
+      "code": "872",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/872"
+    },
+    "464": {
+      "code": "464",
+      "region": "Illinois",
+      "url": "https://excellentnumbers.com/categories/Illinois/464"
+    },
+    "219": {
+      "code": "219",
+      "region": "Indiana",
+      "url": "https://excellentnumbers.com/categories/Indiana/219"
+    },
+    "260": {
+      "code": "260",
+      "region": "Indiana",
+      "url": "https://excellentnumbers.com/categories/Indiana/260"
+    },
+    "317": {
+      "code": "317",
+      "region": "Indiana",
+      "url": "https://excellentnumbers.com/categories/Indiana/317"
+    },
+    "463": {
+      "code": "463",
+      "region": "Indiana",
+      "url": "https://excellentnumbers.com/categories/Indiana/463"
+    },
+    "574": {
+      "code": "574",
+      "region": "Indiana",
+      "url": "https://excellentnumbers.com/categories/Indiana/574"
+    },
+    "765": {
+      "code": "765",
+      "region": "Indiana",
+      "url": "https://excellentnumbers.com/categories/Indiana/765"
+    },
+    "812": {
+      "code": "812",
+      "region": "Indiana",
+      "url": "https://excellentnumbers.com/categories/Indiana/812"
+    },
+    "930": {
+      "code": "930",
+      "region": "Indiana",
+      "url": "https://excellentnumbers.com/categories/Indiana/930"
+    },
+    "319": {
+      "code": "319",
+      "region": "Iowa",
+      "url": "https://excellentnumbers.com/categories/Iowa/319"
+    },
+    "515": {
+      "code": "515",
+      "region": "Iowa",
+      "url": "https://excellentnumbers.com/categories/Iowa/515"
+    },
+    "563": {
+      "code": "563",
+      "region": "Iowa",
+      "url": "https://excellentnumbers.com/categories/Iowa/563"
+    },
+    "641": {
+      "code": "641",
+      "region": "Iowa",
+      "url": "https://excellentnumbers.com/categories/Iowa/641"
+    },
+    "712": {
+      "code": "712",
+      "region": "Iowa",
+      "url": "https://excellentnumbers.com/categories/Iowa/712"
+    },
+    "316": {
+      "code": "316",
+      "region": "Kansas",
+      "url": "https://excellentnumbers.com/categories/Kansas/316"
+    },
+    "620": {
+      "code": "620",
+      "region": "Kansas",
+      "url": "https://excellentnumbers.com/categories/Kansas/620"
+    },
+    "785": {
+      "code": "785",
+      "region": "Kansas",
+      "url": "https://excellentnumbers.com/categories/Kansas/785"
+    },
+    "913": {
+      "code": "913",
+      "region": "Kansas",
+      "url": "https://excellentnumbers.com/categories/Kansas/913"
+    },
+    "270": {
+      "code": "270",
+      "region": "Kentucky",
+      "url": "https://excellentnumbers.com/categories/Kentucky/270"
+    },
+    "364": {
+      "code": "364",
+      "region": "Kentucky",
+      "url": "https://excellentnumbers.com/categories/Kentucky/364"
+    },
+    "502": {
+      "code": "502",
+      "region": "Kentucky",
+      "url": "https://excellentnumbers.com/categories/Kentucky/502"
+    },
+    "606": {
+      "code": "606",
+      "region": "Kentucky",
+      "url": "https://excellentnumbers.com/categories/Kentucky/606"
+    },
+    "859": {
+      "code": "859",
+      "region": "Kentucky",
+      "url": "https://excellentnumbers.com/categories/Kentucky/859"
+    },
+    "225": {
+      "code": "225",
+      "region": "Louisiana",
+      "url": "https://excellentnumbers.com/categories/Louisiana/225"
+    },
+    "318": {
+      "code": "318",
+      "region": "Louisiana",
+      "url": "https://excellentnumbers.com/categories/Louisiana/318"
+    },
+    "337": {
+      "code": "337",
+      "region": "Louisiana",
+      "url": "https://excellentnumbers.com/categories/Louisiana/337"
+    },
+    "504": {
+      "code": "504",
+      "region": "Louisiana",
+      "url": "https://excellentnumbers.com/categories/Louisiana/504"
+    },
+    "985": {
+      "code": "985",
+      "region": "Louisiana",
+      "url": "https://excellentnumbers.com/categories/Louisiana/985"
+    },
+    "207": {
+      "code": "207",
+      "region": "Maine",
+      "url": "https://excellentnumbers.com/categories/Maine/207"
+    },
+    "227": {
+      "code": "227",
+      "region": "Maryland",
+      "url": "https://excellentnumbers.com/categories/Maryland/227"
+    },
+    "240": {
+      "code": "240",
+      "region": "Maryland",
+      "url": "https://excellentnumbers.com/categories/Maryland/240"
+    },
+    "301": {
+      "code": "301",
+      "region": "Maryland",
+      "url": "https://excellentnumbers.com/categories/Maryland/301"
+    },
+    "410": {
+      "code": "410",
+      "region": "Maryland",
+      "url": "https://excellentnumbers.com/categories/Maryland/410"
+    },
+    "443": {
+      "code": "443",
+      "region": "Maryland",
+      "url": "https://excellentnumbers.com/categories/Maryland/443"
+    },
+    "667": {
+      "code": "667",
+      "region": "Maryland",
+      "url": "https://excellentnumbers.com/categories/Maryland/667"
+    },
+    "339": {
+      "code": "339",
+      "region": "Massachusetts",
+      "url": "https://excellentnumbers.com/categories/Massachusetts/339"
+    },
+    "351": {
+      "code": "351",
+      "region": "Massachusetts",
+      "url": "https://excellentnumbers.com/categories/Massachusetts/351"
+    },
+    "413": {
+      "code": "413",
+      "region": "Massachusetts",
+      "url": "https://excellentnumbers.com/categories/Massachusetts/413"
+    },
+    "508": {
+      "code": "508",
+      "region": "Massachusetts",
+      "url": "https://excellentnumbers.com/categories/Massachusetts/508"
+    },
+    "617": {
+      "code": "617",
+      "region": "Massachusetts",
+      "url": "https://excellentnumbers.com/categories/Massachusetts/617"
+    },
+    "774": {
+      "code": "774",
+      "region": "Massachusetts",
+      "url": "https://excellentnumbers.com/categories/Massachusetts/774"
+    },
+    "781": {
+      "code": "781",
+      "region": "Massachusetts",
+      "url": "https://excellentnumbers.com/categories/Massachusetts/781"
+    },
+    "857": {
+      "code": "857",
+      "region": "Massachusetts",
+      "url": "https://excellentnumbers.com/categories/Massachusetts/857"
+    },
+    "978": {
+      "code": "978",
+      "region": "Massachusetts",
+      "url": "https://excellentnumbers.com/categories/Massachusetts/978"
+    },
+    "231": {
+      "code": "231",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/231"
+    },
+    "248": {
+      "code": "248",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/248"
+    },
+    "269": {
+      "code": "269",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/269"
+    },
+    "313": {
+      "code": "313",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/313"
+    },
+    "517": {
+      "code": "517",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/517"
+    },
+    "586": {
+      "code": "586",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/586"
+    },
+    "616": {
+      "code": "616",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/616"
+    },
+    "734": {
+      "code": "734",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/734"
+    },
+    "810": {
+      "code": "810",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/810"
+    },
+    "906": {
+      "code": "906",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/906"
+    },
+    "947": {
+      "code": "947",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/947"
+    },
+    "989": {
+      "code": "989",
+      "region": "Michigan",
+      "url": "https://excellentnumbers.com/categories/Michigan/989"
+    },
+    "218": {
+      "code": "218",
+      "region": "Minnesota",
+      "url": "https://excellentnumbers.com/categories/Minnesota/218"
+    },
+    "320": {
+      "code": "320",
+      "region": "Minnesota",
+      "url": "https://excellentnumbers.com/categories/Minnesota/320"
+    },
+    "507": {
+      "code": "507",
+      "region": "Minnesota",
+      "url": "https://excellentnumbers.com/categories/Minnesota/507"
+    },
+    "612": {
+      "code": "612",
+      "region": "Minnesota",
+      "url": "https://excellentnumbers.com/categories/Minnesota/612"
+    },
+    "651": {
+      "code": "651",
+      "region": "Minnesota",
+      "url": "https://excellentnumbers.com/categories/Minnesota/651"
+    },
+    "763": {
+      "code": "763",
+      "region": "Minnesota",
+      "url": "https://excellentnumbers.com/categories/Minnesota/763"
+    },
+    "952": {
+      "code": "952",
+      "region": "Minnesota",
+      "url": "https://excellentnumbers.com/categories/Minnesota/952"
+    },
+    "228": {
+      "code": "228",
+      "region": "Mississippi",
+      "url": "https://excellentnumbers.com/categories/Mississippi/228"
+    },
+    "601": {
+      "code": "601",
+      "region": "Mississippi",
+      "url": "https://excellentnumbers.com/categories/Mississippi/601"
+    },
+    "662": {
+      "code": "662",
+      "region": "Mississippi",
+      "url": "https://excellentnumbers.com/categories/Mississippi/662"
+    },
+    "769": {
+      "code": "769",
+      "region": "Mississippi",
+      "url": "https://excellentnumbers.com/categories/Mississippi/769"
+    },
+    "235": {
+      "code": "235",
+      "region": "Missouri",
+      "url": "https://excellentnumbers.com/categories/Missouri/235"
+    },
+    "314": {
+      "code": "314",
+      "region": "Missouri",
+      "url": "https://excellentnumbers.com/categories/Missouri/314"
+    },
+    "417": {
+      "code": "417",
+      "region": "Missouri",
+      "url": "https://excellentnumbers.com/categories/Missouri/417"
+    },
+    "557": {
+      "code": "557",
+      "region": "Missouri",
+      "url": "https://excellentnumbers.com/categories/Missouri/557"
+    },
+    "573": {
+      "code": "573",
+      "region": "Missouri",
+      "url": "https://excellentnumbers.com/categories/Missouri/573"
+    },
+    "636": {
+      "code": "636",
+      "region": "Missouri",
+      "url": "https://excellentnumbers.com/categories/Missouri/636"
+    },
+    "660": {
+      "code": "660",
+      "region": "Missouri",
+      "url": "https://excellentnumbers.com/categories/Missouri/660"
+    },
+    "816": {
+      "code": "816",
+      "region": "Missouri",
+      "url": "https://excellentnumbers.com/categories/Missouri/816"
+    },
+    "406": {
+      "code": "406",
+      "region": "Montana",
+      "url": "https://excellentnumbers.com/categories/Montana/406"
+    },
+    "308": {
+      "code": "308",
+      "region": "Nebraska",
+      "url": "https://excellentnumbers.com/categories/Nebraska/308"
+    },
+    "402": {
+      "code": "402",
+      "region": "Nebraska",
+      "url": "https://excellentnumbers.com/categories/Nebraska/402"
+    },
+    "531": {
+      "code": "531",
+      "region": "Nebraska",
+      "url": "https://excellentnumbers.com/categories/Nebraska/531"
+    },
+    "702": {
+      "code": "702",
+      "region": "Nevada",
+      "url": "https://excellentnumbers.com/categories/Nevada/702"
+    },
+    "725": {
+      "code": "725",
+      "region": "Nevada",
+      "url": "https://excellentnumbers.com/categories/Nevada/725"
+    },
+    "775": {
+      "code": "775",
+      "region": "Nevada",
+      "url": "https://excellentnumbers.com/categories/Nevada/775"
+    },
+    "603": {
+      "code": "603",
+      "region": "New Hampshire",
+      "url": "https://excellentnumbers.com/categories/New Hampshire/603"
+    },
+    "201": {
+      "code": "201",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/201"
+    },
+    "551": {
+      "code": "551",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/551"
+    },
+    "609": {
+      "code": "609",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/609"
+    },
+    "640": {
+      "code": "640",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/640"
+    },
+    "732": {
+      "code": "732",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/732"
+    },
+    "848": {
+      "code": "848",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/848"
+    },
+    "856": {
+      "code": "856",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/856"
+    },
+    "862": {
+      "code": "862",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/862"
+    },
+    "908": {
+      "code": "908",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/908"
+    },
+    "973": {
+      "code": "973",
+      "region": "New Jersey",
+      "url": "https://excellentnumbers.com/categories/New Jersey/973"
+    },
+    "505": {
+      "code": "505",
+      "region": "New Mexico",
+      "url": "https://excellentnumbers.com/categories/New Mexico/505"
+    },
+    "575": {
+      "code": "575",
+      "region": "New Mexico",
+      "url": "https://excellentnumbers.com/categories/New Mexico/575"
+    },
+    "212": {
+      "code": "212",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/212"
+    },
+    "315": {
+      "code": "315",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/315"
+    },
+    "329": {
+      "code": "329",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/329"
+    },
+    "332": {
+      "code": "332",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/332"
+    },
+    "347": {
+      "code": "347",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/347"
+    },
+    "363": {
+      "code": "363",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/363"
+    },
+    "516": {
+      "code": "516",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/516"
+    },
+    "518": {
+      "code": "518",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/518"
+    },
+    "585": {
+      "code": "585",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/585"
+    },
+    "607": {
+      "code": "607",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/607"
+    },
+    "631": {
+      "code": "631",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/631"
+    },
+    "646": {
+      "code": "646",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/646"
+    },
+    "680": {
+      "code": "680",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/680"
+    },
+    "716": {
+      "code": "716",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/716"
+    },
+    "718": {
+      "code": "718",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/718"
+    },
+    "838": {
+      "code": "838",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/838"
+    },
+    "845": {
+      "code": "845",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/845"
+    },
+    "914": {
+      "code": "914",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/914"
+    },
+    "917": {
+      "code": "917",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/917"
+    },
+    "929": {
+      "code": "929",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/929"
+    },
+    "934": {
+      "code": "934",
+      "region": "New York",
+      "url": "https://excellentnumbers.com/categories/New York/934"
+    },
+    "252": {
+      "code": "252",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/252"
+    },
+    "336": {
+      "code": "336",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/336"
+    },
+    "472": {
+      "code": "472",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/472"
+    },
+    "704": {
+      "code": "704",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/704"
+    },
+    "743": {
+      "code": "743",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/743"
+    },
+    "828": {
+      "code": "828",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/828"
+    },
+    "910": {
+      "code": "910",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/910"
+    },
+    "919": {
+      "code": "919",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/919"
+    },
+    "980": {
+      "code": "980",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/980"
+    },
+    "984": {
+      "code": "984",
+      "region": "North Carolina",
+      "url": "https://excellentnumbers.com/categories/North Carolina/984"
+    },
+    "701": {
+      "code": "701",
+      "region": "North Dakota",
+      "url": "https://excellentnumbers.com/categories/North Dakota/701"
+    },
+    "216": {
+      "code": "216",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/216"
+    },
+    "283": {
+      "code": "283",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/283"
+    },
+    "220": {
+      "code": "220",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/220"
+    },
+    "234": {
+      "code": "234",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/234"
+    },
+    "326": {
+      "code": "326",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/326"
+    },
+    "330": {
+      "code": "330",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/330"
+    },
+    "380": {
+      "code": "380",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/380"
+    },
+    "419": {
+      "code": "419",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/419"
+    },
+    "440": {
+      "code": "440",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/440"
+    },
+    "513": {
+      "code": "513",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/513"
+    },
+    "567": {
+      "code": "567",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/567"
+    },
+    "614": {
+      "code": "614",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/614"
+    },
+    "740": {
+      "code": "740",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/740"
+    },
+    "937": {
+      "code": "937",
+      "region": "Ohio",
+      "url": "https://excellentnumbers.com/categories/Ohio/937"
+    },
+    "458": {
+      "code": "458",
+      "region": "Oregon",
+      "url": "https://excellentnumbers.com/categories/Oregon/458"
+    },
+    "503": {
+      "code": "503",
+      "region": "Oregon",
+      "url": "https://excellentnumbers.com/categories/Oregon/503"
+    },
+    "541": {
+      "code": "541",
+      "region": "Oregon",
+      "url": "https://excellentnumbers.com/categories/Oregon/541"
+    },
+    "971": {
+      "code": "971",
+      "region": "Oregon",
+      "url": "https://excellentnumbers.com/categories/Oregon/971"
+    },
+    "405": {
+      "code": "405",
+      "region": "Oklahoma",
+      "url": "https://excellentnumbers.com/categories/Oklahoma/405"
+    },
+    "539": {
+      "code": "539",
+      "region": "Oklahoma",
+      "url": "https://excellentnumbers.com/categories/Oklahoma/539"
+    },
+    "572": {
+      "code": "572",
+      "region": "Oklahoma",
+      "url": "https://excellentnumbers.com/categories/Oklahoma/572"
+    },
+    "580": {
+      "code": "580",
+      "region": "Oklahoma",
+      "url": "https://excellentnumbers.com/categories/Oklahoma/580"
+    },
+    "918": {
+      "code": "918",
+      "region": "Oklahoma",
+      "url": "https://excellentnumbers.com/categories/Oklahoma/918"
+    },
+    "215": {
+      "code": "215",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/215"
+    },
+    "223": {
+      "code": "223",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/223"
+    },
+    "267": {
+      "code": "267",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/267"
+    },
+    "272": {
+      "code": "272",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/272"
+    },
+    "412": {
+      "code": "412",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/412"
+    },
+    "445": {
+      "code": "445",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/445"
+    },
+    "484": {
+      "code": "484",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/484"
+    },
+    "570": {
+      "code": "570",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/570"
+    },
+    "582": {
+      "code": "582",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/582"
+    },
+    "610": {
+      "code": "610",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/610"
+    },
+    "717": {
+      "code": "717",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/717"
+    },
+    "724": {
+      "code": "724",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/724"
+    },
+    "814": {
+      "code": "814",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/814"
+    },
+    "835": {
+      "code": "835",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/835"
+    },
+    "878": {
+      "code": "878",
+      "region": "Pennsylvania",
+      "url": "https://excellentnumbers.com/categories/Pennsylvania/878"
+    },
+    "401": {
+      "code": "401",
+      "region": "Rhode Island",
+      "url": "https://excellentnumbers.com/categories/Rhode Island/401"
+    },
+    "803": {
+      "code": "803",
+      "region": "South Carolina",
+      "url": "https://excellentnumbers.com/categories/South Carolina/803"
+    },
+    "821": {
+      "code": "821",
+      "region": "South Carolina",
+      "url": "https://excellentnumbers.com/categories/South Carolina/821"
+    },
+    "839": {
+      "code": "839",
+      "region": "South Carolina",
+      "url": "https://excellentnumbers.com/categories/South Carolina/839"
+    },
+    "843": {
+      "code": "843",
+      "region": "South Carolina",
+      "url": "https://excellentnumbers.com/categories/South Carolina/843"
+    },
+    "854": {
+      "code": "854",
+      "region": "South Carolina",
+      "url": "https://excellentnumbers.com/categories/South Carolina/854"
+    },
+    "864": {
+      "code": "864",
+      "region": "South Carolina",
+      "url": "https://excellentnumbers.com/categories/South Carolina/864"
+    },
+    "605": {
+      "code": "605",
+      "region": "South Dakota",
+      "url": "https://excellentnumbers.com/categories/South Dakota/605"
+    },
+    "423": {
+      "code": "423",
+      "region": "Tennessee",
+      "url": "https://excellentnumbers.com/categories/Tennessee/423"
+    },
+    "615": {
+      "code": "615",
+      "region": "Tennessee",
+      "url": "https://excellentnumbers.com/categories/Tennessee/615"
+    },
+    "629": {
+      "code": "629",
+      "region": "Tennessee",
+      "url": "https://excellentnumbers.com/categories/Tennessee/629"
+    },
+    "731": {
+      "code": "731",
+      "region": "Tennessee",
+      "url": "https://excellentnumbers.com/categories/Tennessee/731"
+    },
+    "865": {
+      "code": "865",
+      "region": "Tennessee",
+      "url": "https://excellentnumbers.com/categories/Tennessee/865"
+    },
+    "901": {
+      "code": "901",
+      "region": "Tennessee",
+      "url": "https://excellentnumbers.com/categories/Tennessee/901"
+    },
+    "931": {
+      "code": "931",
+      "region": "Tennessee",
+      "url": "https://excellentnumbers.com/categories/Tennessee/931"
+    },
+    "210": {
+      "code": "210",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/210"
+    },
+    "214": {
+      "code": "214",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/214"
+    },
+    "254": {
+      "code": "254",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/254"
+    },
+    "281": {
+      "code": "281",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/281"
+    },
+    "325": {
+      "code": "325",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/325"
+    },
+    "346": {
+      "code": "346",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/346"
+    },
+    "361": {
+      "code": "361",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/361"
+    },
+    "409": {
+      "code": "409",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/409"
+    },
+    "430": {
+      "code": "430",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/430"
+    },
+    "432": {
+      "code": "432",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/432"
+    },
+    "469": {
+      "code": "469",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/469"
+    },
+    "512": {
+      "code": "512",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/512"
+    },
+    "682": {
+      "code": "682",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/682"
+    },
+    "713": {
+      "code": "713",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/713"
+    },
+    "726": {
+      "code": "726",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/726"
+    },
+    "737": {
+      "code": "737",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/737"
+    },
+    "806": {
+      "code": "806",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/806"
+    },
+    "817": {
+      "code": "817",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/817"
+    },
+    "830": {
+      "code": "830",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/830"
+    },
+    "832": {
+      "code": "832",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/832"
+    },
+    "903": {
+      "code": "903",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/903"
+    },
+    "915": {
+      "code": "915",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/915"
+    },
+    "936": {
+      "code": "936",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/936"
+    },
+    "940": {
+      "code": "940",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/940"
+    },
+    "945": {
+      "code": "945",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/945"
+    },
+    "956": {
+      "code": "956",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/956"
+    },
+    "972": {
+      "code": "972",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/972"
+    },
+    "979": {
+      "code": "979",
+      "region": "Texas",
+      "url": "https://excellentnumbers.com/categories/Texas/979"
+    },
+    "385": {
+      "code": "385",
+      "region": "Utah",
+      "url": "https://excellentnumbers.com/categories/Utah/385"
+    },
+    "435": {
+      "code": "435",
+      "region": "Utah",
+      "url": "https://excellentnumbers.com/categories/Utah/435"
+    },
+    "801": {
+      "code": "801",
+      "region": "Utah",
+      "url": "https://excellentnumbers.com/categories/Utah/801"
+    },
+    "802": {
+      "code": "802",
+      "region": "Vermont",
+      "url": "https://excellentnumbers.com/categories/Vermont/802"
+    },
+    "276": {
+      "code": "276",
+      "region": "Virginia",
+      "url": "https://excellentnumbers.com/categories/Virginia/276"
+    },
+    "434": {
+      "code": "434",
+      "region": "Virginia",
+      "url": "https://excellentnumbers.com/categories/Virginia/434"
+    },
+    "540": {
+      "code": "540",
+      "region": "Virginia",
+      "url": "https://excellentnumbers.com/categories/Virginia/540"
+    },
+    "571": {
+      "code": "571",
+      "region": "Virginia",
+      "url": "https://excellentnumbers.com/categories/Virginia/571"
+    },
+    "703": {
+      "code": "703",
+      "region": "Virginia",
+      "url": "https://excellentnumbers.com/categories/Virginia/703"
+    },
+    "757": {
+      "code": "757",
+      "region": "Virginia",
+      "url": "https://excellentnumbers.com/categories/Virginia/757"
+    },
+    "804": {
+      "code": "804",
+      "region": "Virginia",
+      "url": "https://excellentnumbers.com/categories/Virginia/804"
+    },
+    "826": {
+      "code": "826",
+      "region": "Virginia",
+      "url": "https://excellentnumbers.com/categories/Virginia/826"
+    },
+    "948": {
+      "code": "948",
+      "region": "Virginia",
+      "url": "https://excellentnumbers.com/categories/Virginia/948"
+    },
+    "206": {
+      "code": "206",
+      "region": "Washington",
+      "url": "https://excellentnumbers.com/categories/Washington/206"
+    },
+    "253": {
+      "code": "253",
+      "region": "Washington",
+      "url": "https://excellentnumbers.com/categories/Washington/253"
+    },
+    "360": {
+      "code": "360",
+      "region": "Washington",
+      "url": "https://excellentnumbers.com/categories/Washington/360"
+    },
+    "425": {
+      "code": "425",
+      "region": "Washington",
+      "url": "https://excellentnumbers.com/categories/Washington/425"
+    },
+    "509": {
+      "code": "509",
+      "region": "Washington",
+      "url": "https://excellentnumbers.com/categories/Washington/509"
+    },
+    "564": {
+      "code": "564",
+      "region": "Washington",
+      "url": "https://excellentnumbers.com/categories/Washington/564"
+    },
+    "304": {
+      "code": "304",
+      "region": "West Virginia",
+      "url": "https://excellentnumbers.com/categories/West Virginia/304"
+    },
+    "681": {
+      "code": "681",
+      "region": "West Virginia",
+      "url": "https://excellentnumbers.com/categories/West Virginia/681"
+    },
+    "262": {
+      "code": "262",
+      "region": "Wisconsin",
+      "url": "https://excellentnumbers.com/categories/Wisconsin/262"
+    },
+    "274": {
+      "code": "274",
+      "region": "Wisconsin",
+      "url": "https://excellentnumbers.com/categories/Wisconsin/274"
+    },
+    "414": {
+      "code": "414",
+      "region": "Wisconsin",
+      "url": "https://excellentnumbers.com/categories/Wisconsin/414"
+    },
+    "534": {
+      "code": "534",
+      "region": "Wisconsin",
+      "url": "https://excellentnumbers.com/categories/Wisconsin/534"
+    },
+    "608": {
+      "code": "608",
+      "region": "Wisconsin",
+      "url": "https://excellentnumbers.com/categories/Wisconsin/608"
+    },
+    "715": {
+      "code": "715",
+      "region": "Wisconsin",
+      "url": "https://excellentnumbers.com/categories/Wisconsin/715"
+    },
+    "920": {
+      "code": "920",
+      "region": "Wisconsin",
+      "url": "https://excellentnumbers.com/categories/Wisconsin/920"
+    },
+    "307": {
+      "code": "307",
+      "region": "Wyoming",
+      "url": "https://excellentnumbers.com/categories/Wyoming/307"
+    },
+    "939": {
+      "code": "939",
+      "region": "Puerto Rico",
+      "url": "https://excellentnumbers.com/categories/Puerto Rico/939"
+    },
+    "787": {
+      "code": "787",
+      "region": "Puerto Rico",
+      "url": "https://excellentnumbers.com/categories/Puerto Rico/787"
+    }
+  },
+  "summary": {
+    "total_regions": 70,
+    "total_area_codes": 357,
+    "scrape_timestamp": "2025-08-09 10:40:30",
+    "source_url": "https://excellentnumbers.com/",
+    "description": "Global regions and Area Codes from excellentnumbers.com"
+  }
+}
