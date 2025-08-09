@@ -196,8 +196,10 @@ class NumberbarnNumberExtractor:
         self.close_mongodb()
     
     async def extract_numbers_from_url(self, page, url: str, state: str, npa: str) -> List[Dict]:
-        """从指定URL提取号码和价格数据"""
-        numbers = []
+        """从指定URL提取号码和价格数据，支持翻页"""
+        all_numbers = []
+        page_number = 1
+        max_pages = 10  # 最大翻页数，防止无限循环
         
         try:
             print(f"正在处理: {state} - {npa}")
@@ -206,85 +208,134 @@ class NumberbarnNumberExtractor:
             await page.goto(url, wait_until="domcontentloaded", timeout=60000)
             await page.wait_for_timeout(3000)
             
-            # 提取号码数据
-            page_numbers = await page.evaluate("""
-                () => {
-                    const numbers = [];
-                    
-                    // 查找包含电话号码和价格的元素
-                    const numberElements = document.querySelectorAll('.number-item, .phone-number, .listing-item, [data-phone], .search-result, .result-item');
-                    
-                    if (numberElements.length > 0) {
-                        numberElements.forEach(el => {
-                            const text = el.textContent || '';
-                            
-                            // 提取电话号码 - 支持多种格式
-                            const phonePattern = /(\\(\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4})/g;
-                            const phoneMatches = text.match(phonePattern);
-                            
-                            if (phoneMatches) {
-                                // 提取价格
-                                const pricePattern = /\\$[\\d,]+\\.?\\d*/g;
-                                const priceMatch = text.match(pricePattern);
-                                
-                                numbers.push({
-                                    number: phoneMatches[0].trim(),
-                                    price: priceMatch ? priceMatch[0] : ''
-                                });
-                            }
-                        });
-                    }
-                    
-                    // 如果没有找到专门的号码元素，进行全局搜索
-                    if (numbers.length === 0) {
-                        const bodyText = document.body.textContent || '';
-                        const phonePattern = /(\\(\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4})/g;
-                        const phoneMatches = bodyText.match(phonePattern);
+            while page_number <= max_pages:
+                print(f"  正在提取第 {page_number} 页数据...")
+                
+                # 提取当前页面的号码数据
+                page_numbers = await page.evaluate("""
+                    () => {
+                        const numbers = [];
                         
-                        if (phoneMatches) {
-                            // 去重
-                            const uniquePhones = [...new Set(phoneMatches)];
-                            
-                            uniquePhones.forEach(phone => {
-                                // 尝试在附近找到价格
-                                const pricePattern = /\\$[\\d,]+\\.?\\d*/g;
-                                const priceMatch = bodyText.match(pricePattern);
+                        // 查找包含电话号码和价格的元素
+                        const numberElements = document.querySelectorAll('.number-item, .phone-number, .listing-item, [data-phone], .search-result, .result-item');
+                        
+                        if (numberElements.length > 0) {
+                            numberElements.forEach(el => {
+                                const text = el.textContent || '';
                                 
-                                numbers.push({
-                                    number: phone.trim(),
-                                    price: priceMatch ? priceMatch[0] : ''
-                                });
+                                // 提取电话号码 - 支持多种格式
+                                const phonePattern = /(\\(\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4})/g;
+                                const phoneMatches = text.match(phonePattern);
+                                
+                                if (phoneMatches) {
+                                    // 提取价格
+                                    const pricePattern = /\\$[\\d,]+\\.?\\d*/g;
+                                    const priceMatch = text.match(pricePattern);
+                                    
+                                    numbers.push({
+                                        number: phoneMatches[0].trim(),
+                                        price: priceMatch ? priceMatch[0] : ''
+                                    });
+                                }
                             });
                         }
+                        
+                        // 如果没有找到专门的号码元素，进行全局搜索
+                        if (numbers.length === 0) {
+                            const bodyText = document.body.textContent || '';
+                            const phonePattern = /(\\(\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4})/g;
+                            const phoneMatches = bodyText.match(phonePattern);
+                            
+                            if (phoneMatches) {
+                                // 去重
+                                const uniquePhones = [...new Set(phoneMatches)];
+                                
+                                uniquePhones.forEach(phone => {
+                                    // 尝试在附近找到价格
+                                    const pricePattern = /\\$[\\d,]+\\.?\\d*/g;
+                                    const priceMatch = bodyText.match(pricePattern);
+                                    
+                                    numbers.push({
+                                        number: phone.trim(),
+                                        price: priceMatch ? priceMatch[0] : ''
+                                    });
+                                });
+                            }
+                        }
+                        
+                        return numbers;
                     }
+                """)
+                
+                # 添加state和npa信息
+                current_page_numbers = []
+                for number in page_numbers:
+                    number.update({
+                        'state': state,
+                        'npa': npa,
+                        'page': page_number,
+                        'source_url': page.url
+                    })
+                    current_page_numbers.append(number)
+                    all_numbers.append(number)
+                
+                print(f"    第 {page_number} 页提取到 {len(current_page_numbers)} 个号码")
+                
+                # 打印当前页的前3条记录（如果是第一页）
+                if page_number == 1 and current_page_numbers:
+                    print("    前3条记录:")
+                    for i, number in enumerate(current_page_numbers[:3]):
+                        print(f"      {i+1}. 号码: {number.get('number', '')}, 价格: {number.get('price', '')}, 州: {number.get('state', '')}, 区号: {number.get('npa', '')}")
+                
+                # 立即保存当前页数据到MongoDB
+                if current_page_numbers:
+                    self.save_numbers_to_mongodb(current_page_numbers)
+                
+                # 检查是否有下一页（查找 '>' 翻页按钮）
+                try:
+                    # 查找翻页按钮的多种可能选择器
+                    next_button_selectors = [
+                        'a:has-text(">")',
+                        'button:has-text(">")',
+                        '.pagination a:has-text(">")',
+                        '.pager a:has-text(">")',
+                        '[aria-label*="next"]',
+                        '[title*="next"]',
+                        '.next-page',
+                        '.pagination-next'
+                    ]
                     
-                    return numbers;
-                }
-            """)
+                    next_button = None
+                    for selector in next_button_selectors:
+                        try:
+                            next_button = await page.query_selector(selector)
+                            if next_button:
+                                # 检查按钮是否可以点击（不是禁用状态）
+                                is_disabled = await next_button.is_disabled()
+                                is_visible = await next_button.is_visible()
+                                if not is_disabled and is_visible:
+                                    break
+                                else:
+                                    next_button = None
+                        except:
+                            continue
+                    
+                    if next_button:
+                        print(f"    找到下一页按钮，正在翻到第 {page_number + 1} 页...")
+                        await next_button.click()
+                        await page.wait_for_timeout(2000)  # 等待页面加载
+                        page_number += 1
+                    else:
+                        print(f"    没有找到下一页按钮，当前组合提取完成")
+                        break
+                        
+                except Exception as e:
+                    print(f"    翻页时出错: {e}")
+                    break
+                    
+            print(f"  组合 {state}-{npa} 总共提取到 {len(all_numbers)} 个号码（{page_number} 页）")
             
-            # 添加state和npa信息
-            for number in page_numbers:
-                number.update({
-                    'state': state,
-                    'npa': npa,
-                    'page': 1,
-                    'source_url': url
-                })
-                numbers.append(number)
-            
-            print(f"  提取到 {len(numbers)} 个号码")
-            
-            # 打印前3条记录
-            if numbers:
-                print("  前3条记录:")
-                for i, number in enumerate(numbers[:3]):
-                    print(f"    {i+1}. 号码: {number.get('number', '')}, 价格: {number.get('price', '')}, 州: {number.get('state', '')}, 区号: {number.get('npa', '')}")
-            
-            # 立即保存到MongoDB
-            if numbers:
-                self.save_numbers_to_mongodb(numbers)
-            
-            return numbers
+            return all_numbers
             
         except Exception as e:
             print(f"提取数据失败 {url}: {e}")
@@ -306,7 +357,7 @@ class NumberbarnNumberExtractor:
                     print(f"\n处理进度: {i+1}/{len(combinations)} - {state} {npa}")
                     
                     # 构建URL，包含更多结果和限制参数
-                    url = f"https://www.numberbarn.com/search?type=local&state={state}&npa={npa}&moreResults=true&sort=price%2B&limit=100"
+                    url = f"https://www.numberbarn.com/search?type=local&state={state}&npa={npa}&moreResults=true&sort=price%2B&limit=24"
                     
                     try:
                         numbers = await self.extract_numbers_from_url(page, url, state, npa)
@@ -424,7 +475,7 @@ def extract_from_single_url(url: str) -> List[Dict]:
     """用法示例：
         from numberbarn_scraper import extract_from_single_url
         numbers = asyncio.run(extract_from_single_url(
-            "https://www.numberbarn.com/search?type=local&state=NJ&npa=201&moreResults=true&sort=price%2B&limit=100"
+            "https://www.numberbarn.com/search?type=local&state=NJ&npa=201&moreResults=true&sort=price%2B&limit=24"
         ))
         print(f"提取到 {len(numbers)} 个号码")
     """
