@@ -5,15 +5,12 @@ Usage:
   python -m playwright install
 
   python excellentnumbers_scraper_mongo.py
-    # 或在你自己的代码里：
-    # from excellentnumbers_scraper_mongo import ExcellentNumbersScraper
-    # scraper = ExcellentNumbersScraper(mongo_host="127.0.0.1", mongo_user="root", mongo_password="pwd")
-    # scraper.run("https://excellentnumbers.com/categories/Pennsylvania/582")
 """
 
 import asyncio
 import re
 import time
+import random
 from typing import List, Dict, Optional
 from urllib.parse import urljoin
 from datetime import datetime, timezone
@@ -52,12 +49,19 @@ class ExcellentNumbersScraper:
         mongo_collection: str = "numbers",
         headless: bool = True,
         page_timeout_ms: int = 60_000,
-        page_pause_sec: float = 0.8,
+        page_pause_sec: float = 0.8,          # 原有的固定停顿（仍保留）
         user_agent: Optional[str] = None,
+        # ↓↓↓ 新增：人类化停顿/滚动参数 ↓↓↓
+        min_delay: float = 0.9,               # 每页之间的最小随机停顿（包含翻页）
+        max_delay: float = 2.2,               # 每页之间的最大随机停顿
+        jitter_ms: int = 400,                 # 每次加载后的轻微随机等待（毫秒）
+        scroll_steps_range: tuple = (5, 8),   # 人类式滚动步数范围
+        scroll_px_range: tuple = (450, 800),  # 每步滚动像素范围
+        long_pause_every: int = 0,            # 每翻 N 页再做一次长停顿（0=关闭）
+        long_pause_range: tuple = (6.0, 12.0) # 长停顿范围
     ):
         """
         只需传 Mongo 的 IP、用户、密码（若无认证可留空 user/password）。
-        你也可直接传 mongo_uri 覆盖。
         """
         # Playwright 配置
         self.headless = headless
@@ -69,19 +73,44 @@ class ExcellentNumbersScraper:
             "Chrome/123.0.0.0 Safari/537.36"
         )
 
-        # MongoDB 连接
-    
+        # 人类化参数
+        self.min_delay = min_delay
+        self.max_delay = max_delay
+        self.jitter_ms = jitter_ms
+        self.scroll_steps_range = scroll_steps_range
+        self.scroll_px_range = scroll_px_range
+        self.long_pause_every = long_pause_every
+        self.long_pause_range = long_pause_range
+
+        # MongoDB 连接（按你原来的写法）
         uri = f"mongodb://{mongo_user}:{mongo_password}@{mongo_host}:{mongo_port}/?authSource=extra_numbers"
-         
         self.mongo = MongoClient(uri)
         self.col = self.mongo[mongo_db][mongo_collection]
-        # 唯一索引：phone+price
+        # 唯一索引（保持你原来的：仅 phone 唯一）
         self.col.create_index([("phone", ASCENDING)], unique=True)
+
+    # ---------- 人类化动作 ----------
+    def _human_sleep(self):
+        time.sleep(random.uniform(self.min_delay, self.max_delay))
+
+    async def _human_scroll(self, page):
+        steps = random.randint(*self.scroll_steps_range)
+        for _ in range(steps):
+            px = random.randint(*self.scroll_px_range)
+            await page.evaluate(f"window.scrollBy(0,{px});")
+            # 小停顿模拟阅读
+            time.sleep(random.uniform(0.25, 0.7))
+        # 回到顶部，避免影响定位
+        await page.evaluate("window.scrollTo(0,0);")
+        time.sleep(random.uniform(0.2, 0.5))
 
     # ---------- Playwright 基础 ----------
     async def _get_page_html(self, page, url: str) -> str:
         await page.goto(url, wait_until="load", timeout=self.page_timeout_ms)
-        await page.wait_for_timeout(800)  # 等一会给前端渲染
+        # 原固定等待 + 轻微抖动
+        await page.wait_for_timeout(800 + random.randint(0, self.jitter_ms))
+        # 人类式滚动触发懒加载
+        await self._human_scroll(page)
         return await page.content()
 
     # ---------- 提取逻辑（先站点特化，失败再通用） ----------
@@ -96,13 +125,7 @@ class ExcellentNumbersScraper:
 
     @classmethod
     def _extract_site_specific(cls, soup: BeautifulSoup) -> List[Dict[str, str]]:
-        """
-        针对 excellentnumbers.com 的常见卡片/列表做的特化提取：
-        - 在同一块容器里，寻找电话文本（a 标签或纯文本）与 $ 价格。
-        - 若站点结构调整，可能失效；届时会回落到通用解析。
-        """
         results = []
-        # 常见容器：卡片、列表项、表格行等
         containers = soup.select("div, li, article, tr, section")
         for c in containers:
             text = c.get_text(" ", strip=True)
@@ -113,13 +136,11 @@ class ExcellentNumbersScraper:
             if not phones or not prices:
                 continue
             results.append({"phone": cls._clean_phone(phones[0]), "price": prices[0].replace(" ", "")})
-        # 去重
         dedup = {(r["phone"], r["price"]): r for r in results}
         return list(dedup.values())
 
     @classmethod
     def _extract_generic(cls, soup: BeautifulSoup) -> List[Dict[str, str]]:
-        """通用回退方案：在块级容器中用正则配对电话号码+价格。"""
         results = []
         for block in soup.select("div, li, article, tr, section"):
             t = block.get_text(" ", strip=True)
@@ -168,20 +189,20 @@ class ExcellentNumbersScraper:
         now = datetime.now(timezone.utc)
         ops = []
         for r in rows:
+            # 注意：这里按你原代码，用 (phone, price) 作为 upsert key，
+            # 但集合索引是 phone 唯一。如果同号不同价，可能命中唯一索引冲突。
             key = {"phone": r["phone"], "price": r["price"]}
-            doc = {**key, "source_url": source_url,"source":"excellent_number", "crawled_at": now}
+            doc = {**key, "source_url": source_url, "source": "excellent_number", "crawled_at": now}
             ops.append(ReplaceOne(key, doc, upsert=True))
         result = self.col.bulk_write(ops, ordered=False)
-        print(
-            f"[MONGO] upserted={getattr(result, 'upserted_count', 0) or 0}, "
-            f"modified={getattr(result, 'modified_count', 0) or 0}"
-        )
+        print(f"[MONGO] upserted={getattr(result, 'upserted_count', 0) or 0}, modified={getattr(result, 'modified_count', 0) or 0}")
 
     # ---------- 抓取主流程 ----------
     async def scrape(self, url: str) -> List[Dict[str, str]]:
         """抓取并返回本轮抓到的 (phone, price) 去重列表（同时已写入 Mongo）。"""
         all_rows: List[Dict[str, str]] = []
         visited = set()
+        page_count = 0
 
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=self.headless)
@@ -191,7 +212,9 @@ class ExcellentNumbersScraper:
             cur = url
             while cur and cur not in visited:
                 visited.add(cur)
+                page_count += 1
                 print(f"[INFO] Fetching: {cur}")
+
                 try:
                     html = await self._get_page_html(page, cur)
                 except PlaywrightTimeoutError:
@@ -203,9 +226,16 @@ class ExcellentNumbersScraper:
                 self._bulk_upsert(rows, source_url=cur)
                 all_rows.extend(rows)
 
+                # 找下一页
                 nxt = self._find_next_url(html, cur)
                 if nxt and nxt not in visited:
-                    time.sleep(self.page_pause_sec)
+                    # 页间随机停顿（人类化）
+                    self._human_sleep()
+                    # 可选：每 N 页做长停顿
+                    if self.long_pause_every and page_count % self.long_pause_every == 0:
+                        lp = random.uniform(*self.long_pause_range)
+                        print(f"[PAUSE] Long pause ~{lp:.1f}s after {page_count} pages")
+                        time.sleep(lp)
                     cur = nxt
                 else:
                     cur = None
@@ -225,13 +255,21 @@ class ExcellentNumbersScraper:
 if __name__ == "__main__":
     # ✅ 修改为你的 MongoDB 连接信息
     scraper = ExcellentNumbersScraper(
-        mongo_host="43.159.58.235",   # 你的 Mongo IP
-        mongo_user="extra_numbers",        # 你的用户名（无账号可留空）
-        mongo_password="RsBWd3hTAZeR7kC4",  # 你的密码（无账号可留空）
-        mongo_port=27017,         # 端口默认 27017
+        mongo_host="43.159.58.235",
+        mongo_user="extra_numbers",
+        mongo_password="RsBWd3hTAZeR7kC4",
+        mongo_port=27017,
         mongo_db="extra_numbers",
         mongo_collection="numbers",
         headless=True,
+        # ↓ 可根据需要微调人类化参数
+        min_delay=1.0,
+        max_delay=2.8,
+        jitter_ms=500,
+        scroll_steps_range=(5, 8),
+        scroll_px_range=(480, 820),
+        long_pause_every=0,            # 设为 0 表示关闭长停顿
+        long_pause_range=(6.0, 12.0),
     )
 
     start_url = "https://excellentnumbers.com/categories/Pennsylvania/582?sort=newest&sortcode="
