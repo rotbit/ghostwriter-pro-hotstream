@@ -254,7 +254,7 @@ class MongoToPostgreSQLSync:
                     'phone': phone,
                     'price_str': price_str,
                     'original_price': original_price,
-                    'adjusted_price': adjusted_price,
+                    'adjusted_price': adjusted_price * 1.2,
                     'source_url': source_url,
                     'source': source,
                     'updated_at': datetime.now(timezone.utc)
