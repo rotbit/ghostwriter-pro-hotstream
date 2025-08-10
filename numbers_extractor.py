@@ -138,7 +138,7 @@ class NumbersExtractor(BaseScraper):
                     base_url = area_code_info.get('url', '')
                     if base_url:
                         # 添加排序参数，从newest开始
-                        url_with_sort = f"{base_url}?sort=newest&sortcode=&moreResults=true&limit=100"
+                        url_with_sort = f"{base_url}?sort=newest&sortcode="
                         urls.append({
                             'region': region_name,
                             'area_code': area_code_info.get('code', ''),
