@@ -87,7 +87,6 @@ class ExcellentNumbersScraper:
         self.mongo = MongoClient(uri)
         self.col = self.mongo[mongo_db][mongo_collection]
         # 唯一索引（保持你原来的：仅 phone 唯一）
-        self.col.create_index([("phone", ASCENDING)], unique=True)
 
     # ---------- 人类化动作 ----------
     def _human_sleep(self):
